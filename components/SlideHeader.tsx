@@ -13,14 +13,17 @@ const SlideHeader = (props: Props) => {
   return (
     <>
       <div
-        className="fixed z-[60] h-full w-full bg-[rgba(0,0,0,.55)] transition-all"
-        style={{ opacity: `${bool ? "100" : "0"}` }}
+        className="fixed h-full w-full bg-[rgba(0,0,0,.55)] transition-all"
+        style={{
+          opacity: `${bool ? "100" : "0"}`,
+          zIndex: `${bool ? 60 : -1}`,
+        }}
         onClick={() => {
           setBool(false);
         }}
       />
       <header
-        className="fixed right-0 z-[99] h-screen w-[50vw] bg-primary"
+        className="fixed right-0 z-[99] h-screen w-[50vw] bg-primary transition-all"
         style={{ right: `${bool ? 0 : "-100vw"}` }}
         onClick={(e) => {
           e.stopPropagation();
