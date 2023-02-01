@@ -29,6 +29,12 @@ svg {
   background-position-y: 50%;
 }
 
+@media only screen and (max-width: 768px) {
+  .fixed-BG {
+    background-image: none;
+  }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

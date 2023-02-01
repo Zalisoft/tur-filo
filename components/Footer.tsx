@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="flex w-full flex-col items-center justify-center bg-primary py-5">
       <Image className="mx-auto mt-5 mb-12" src={Logo} alt="" />
-      <div className="flex justify-around gap-10 text-white">
+      <div className="flex justify-around gap-10 px-12 text-white md:px-0">
         <div className="flex flex-col">
           <h1 className="mb-5 text-xl font-bold">Navigasyon</h1>
           <Link
