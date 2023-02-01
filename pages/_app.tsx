@@ -13,12 +13,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         defaultTitle="Next js React Web Project Template"
         titleTemplate="%s | Next js React Web Project Template"
         description="Next js React Web Project Template (Typescript, Sass, Tailwind Css, SVGR, Prettier , SEO and On-Demand ISR pre-configs and other generally used features and tools in production.)"
-        canonical={`https://example.com${
+        canonical={`https://turfilokiralama.com${
           router.asPath === "/" ? "" : router.asPath
         }`}
         openGraph={{
           type: "website",
-          url: `https://example.com${
+          url: `https://turfilokiralama.com${
             router.asPath === "/" ? "" : router.asPath
           }`,
           locale: "en",
@@ -29,14 +29,14 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
         mobileAlternate={{
           media: "only screen and (max-width: 640px)",
-          href: `https://example.com${
+          href: `https://turfilokiralama.com${
             router.asPath === "/" ? "" : router.asPath
           }`,
         }}
         twitter={{
           handle: "@example",
           site: "@example",
-          cardType: "summary_large_image",
+          cardType: "turfilokiralama",
         }}
       />
       <Component {...pageProps} />

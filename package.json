@@ -13,13 +13,18 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.10",
     "clsx": "^1.2.1",
     "next": "13.0.6",
     "next-seo": "^5.15.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-form-hook": "^0.0.1",
+    "react-hook-form": "^7.43.0",
+    "react-icons": "^4.7.1",
     "sharp": "^0.31.2",
-    "tailwind-merge": "^1.8.0"
+    "tailwind-merge": "^1.8.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",

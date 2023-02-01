@@ -4,7 +4,7 @@
  */
 module.exports = {
   // TODO Change siteUrl
-  siteUrl: "https://example.com",
+  siteUrl: "https://turfilokiralama.com",
   generateRobotsTxt: true, // (optional)
   robotsTxtOptions: {
     policies: [

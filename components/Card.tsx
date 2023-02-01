@@ -1,34 +1,32 @@
+import Image, { StaticImageData } from "next/image";
 import React from "react";
-import { twMerge } from "tailwind-merge";
+import Link from "next/link";
 
-const Card = ({
-  href,
-  title,
-  content,
-  className,
-}: {
-  href: string;
-  title: string;
-  content: string;
-  className?: string;
-}) => {
+type Props = {
+  img: StaticImageData;
+  h1: string;
+  h2: string;
+  link?: string | undefined;
+};
+
+const Card = (props: Props) => {
+  const { img, h1, h2, link } = props;
   return (
-    <a
-      href={href}
-      className={twMerge(
-        "m-4 max-w-[300px] rounded-[10px] border border-solid border-[#eaeaea] p-6",
-        "text-left text-inherit [text-decoration:none]",
-        "transition-[color,_border-color] duration-150 ease-in-out",
-        "hover:border-[#0070f3] hover:text-[#0070f3]",
-        "focus:border-[#0070f3] focus:text-[#0070f3]",
-        "active:border-[#0070f3] active:text-[#0070f3]",
-        "dark:border-[#222]",
-        className
-      )}
-    >
-      <h2 className="mb-4 text-[1.5rem]">{title}</h2>
-      <p className="m-0 text-[1.25rem] leading-[1.5]">{content}</p>
-    </a>
+    <div className="relative w-full overflow-hidden border-[4px] border-black">
+      <Image className="z-2 absolute h-full bg-black" src={img} alt="" />
+      <div className="z-3 absolute h-full w-full bg-[rgba(0,0,0,.6)]">
+        <h1 className="z-4 mt-[50%] bg-primary py-2 px-2 text-2xl font-bold text-white">
+          {h1}
+        </h1>
+        <h2 className="z-4 bg-black font-bold text-white">{h2}</h2>
+        <Link
+          className="z-4 absolute bottom-2 right-2 rounded bg-black px-6 py-3 text-xl font-bold text-white transition-all hover:bg-primary"
+          href={link ? link : ""}
+        >
+          Detaylar
+        </Link>
+      </div>
+    </div>
   );
 };
 

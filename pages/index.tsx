@@ -1,76 +1,112 @@
 import type { NextPage } from "next";
+import Header from "@/components/Header";
+import Image from "next/image";
+import QR from "@/public/images/QR.jpeg";
+import Footer from "@/components/Footer";
+import { FaCar, FaCarCrash, FaCaravan } from "react-icons/fa";
+import { GiSpeedometer } from "react-icons/gi";
+import Logo from "@/public/icons/Logo-white.png";
 import Card from "@/components/Card";
-import VercelSVG from "@/public/icons/vercel.svg";
-import clsx from "clsx";
+import Driver from "@/public/images/Driver.jpg";
+import Road from "@/public/images/Road.jpg";
+import ComingSoon from "@/public/images/ComingSoon.jpg";
+import LoginForm from "@/components/LoginForm";
+import { useState } from "react";
 
 const Home: NextPage = () => {
+  const [status, setStatus] = useState<"bireysel" | "kurumsal">("bireysel");
   return (
-    <div className="px-8">
-      <main className="flex min-h-screen flex-1 flex-col items-center justify-center py-16">
-        <h1 className="m-0 text-center text-[4rem] leading-[1.15]">
-          Welcome to{" "}
-          <a
-            className="text-[#0070f3] [text-decoration:none] hover:underline focus:underline active:underline"
-            href="https://nextjs.org"
-          >
-            Next.js!
-          </a>
-        </h1>
+    <div className="overflow-hidden">
+      <Header />
+      {/* --Form-- */}
+      <section className="fixed-BG relative h-[65vh] w-full p-8">
+        <div className="relative mx-auto w-full">
+          <h1 className="absolute left-[50%] translate-x-[-50%] translate-y-[-1.5rem] bg-primary px-12 py-4 text-5xl font-bold text-white">
+            Rezervasyon
+          </h1>
 
-        <p className="my-16 text-center text-[1.5rem] leading-[1.5]">
-          Get started by editing{" "}
-          <code
-            className={clsx(
-              "rounded-[5px] bg-[#fafafa] p-3 text-[1.1rem] dark:bg-[#111]",
-              "font-[Menlo,_Monaco,_'Lucida_Console','Liberation_Mono',_'DejaVu_Sans_Mono',_'Bitstream_Vera_Sans_Mono',_'Courier_New',_monospace]"
-            )}
-          >
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="flex w-full max-w-[800px] flex-col flex-wrap items-center justify-center sm:w-auto sm:flex-row">
-          <Card
-            href="https://nextjs.org/docs"
-            title="Documentation &rarr;"
-            content="Find in-depth information about Next.js features and API."
-          />
-          <Card
-            href="https://nextjs.org/learn"
-            title="Learn &rarr;"
-            content="Learn about Next.js in an interactive course with quizzes!"
-          />
-          <Card
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            title="Examples &rarr;"
-            content="Discover and deploy boilerplate example Next.js projects."
-          />
-          <Card
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            title="Deploy &rarr;"
-            content="Instantly deploy your Next.js site to a public URL with Vercel."
-          />
+          <form className="mx-auto h-[38rem] w-[50rem] rounded-xl bg-secondary py-24 px-12">
+            <div className="flex w-full items-center justify-around">
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setStatus("bireysel");
+                }}
+                className={`mb-5 w-[48%] text-center transition-all ${
+                  status === "bireysel"
+                    ? "bg-primary py-2 text-2xl font-bold text-white"
+                    : "bg-gray-200 text-xl text-gray-400"
+                }`}
+              >
+                Bireysel
+              </button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setStatus("kurumsal");
+                }}
+                className={`mb-5 w-[48%] text-center transition-all ${
+                  status === "kurumsal"
+                    ? "bg-primary py-2 text-2xl font-bold text-white"
+                    : "bg-gray-200 text-xl text-gray-400"
+                }`}
+              >
+                Kurumsal
+              </button>
+            </div>
+            <LoginForm />
+          </form>
         </div>
-      </main>
+      </section>
+      {/* --Banner-- */}
+      <div className="flex justify-center font-bold text-primary">
+        <div className="my-28 border-r-[1px] border-primary px-20">
+          <FaCar className="mx-auto" size={60} />
+          <h1>Güvenli Araç Kiralama</h1>
+        </div>
+        <div className="my-28 border-r-[1px] border-primary px-20">
+          <GiSpeedometer className="mx-auto" size={60} />
+          <h1>Hızlı Hizmet</h1>
+        </div>
+        <div className="my-28 border-r-[1px] border-primary px-20">
+          <FaCarCrash className="mx-auto" size={60} />
+          <h1>Sigorta ve Güvenceler</h1>
+        </div>
+        <div className="my-28 px-20">
+          <FaCaravan className="mx-auto" size={60} />
+          <h1>Karaven Kiralama</h1>
+        </div>
+      </div>
+      {/* --QR Code-- */}
+      <div className="flex w-full items-center justify-center bg-primary px-20 py-5">
+        <Image src={Logo} alt="" />
+        <div className="mx-auto h-[250px] w-[500px] rounded-full bg-white">
+          <Image className="mx-auto py-[20px]" src={QR} alt="" width={200} />
+        </div>
+        <Image src={Logo} alt="" />
+      </div>
+      {/* --Cards-- */}
+      <div className="mx-auto my-40 flex h-[400px] w-[80vw] gap-5">
+        <Card
+          img={Driver}
+          h1="Şoförlü Kiralama"
+          h2="Yapmanız Gereken Tek Şey Sürüşün Tadını Çıkarmak"
+          link="/soforlu-kiralama/"
+        />
+        <Card
+          img={Road}
+          h1="Araç Kiralama Kampanyaları"
+          h2="Koşula Bağlı Büyük İndirimler"
+          link="/kampanyalar"
+        />
+        <Card
+          img={ComingSoon}
+          h1="Karavan Ve Elektrikli Araçlar"
+          h2="YAKINDA!!!"
+        />
+      </div>
 
-      <footer className="flex flex-1 items-center justify-center border-t border-solid border-t-[#eaeaea] py-8 dark:border-[#222]">
-        <a
-          className="flex grow items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className="ml-2 h-4">
-            <VercelSVG
-              className="dark:invert"
-              width={72}
-              height={16}
-              alt="Vercel Logo"
-            />
-          </span>
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 };
