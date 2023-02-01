@@ -11,49 +11,18 @@ import Driver from "@/public/images/Driver.jpg";
 import Road from "@/public/images/Road.jpg";
 import ComingSoon from "@/public/images/ComingSoon.jpg";
 import LoginForm from "@/components/LoginForm";
-import { useState } from "react";
 
 const Home: NextPage = () => {
-  const [status, setStatus] = useState<"bireysel" | "kurumsal">("bireysel");
   return (
     <div className="overflow-hidden">
       <Header />
       {/* --Form-- */}
-      <section className="fixed-BG relative h-[65vh] w-full p-8">
+      <section className={`fixed-BG relative h-[70vh] w-full p-8`}>
         <div className="relative mx-auto w-full">
           <h1 className="absolute left-[50%] translate-x-[-50%] translate-y-[-1.5rem] bg-primary px-12 py-4 text-5xl font-bold text-white">
             Rezervasyon
           </h1>
-
-          <form className="mx-auto h-[38rem] w-[50rem] rounded-xl bg-secondary py-24 px-12">
-            <div className="flex w-full items-center justify-around">
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  setStatus("bireysel");
-                }}
-                className={`mb-5 w-[48%] text-center transition-all ${
-                  status === "bireysel"
-                    ? "bg-primary py-2 text-2xl font-bold text-white"
-                    : "bg-gray-200 text-xl text-gray-400"
-                }`}
-              >
-                Bireysel
-              </button>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  setStatus("kurumsal");
-                }}
-                className={`mb-5 w-[48%] text-center transition-all ${
-                  status === "kurumsal"
-                    ? "bg-primary py-2 text-2xl font-bold text-white"
-                    : "bg-gray-200 text-xl text-gray-400"
-                }`}
-              >
-                Kurumsal
-              </button>
-            </div>
+          <form className="mx-auto w-[50rem] rounded-xl bg-secondary py-24 px-12">
             <LoginForm />
           </form>
         </div>
