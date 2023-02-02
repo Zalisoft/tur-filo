@@ -11,8 +11,8 @@ const referanslar = () => {
   return (
     <div className="overflow-hidden">
       <Header />
-      <CardHeader h1="Hakkımızda" />
-      <div className="container mx-auto my-52 flex flex-row items-center justify-around">
+      <CardHeader h1="Referanslar" />
+      <div className="container mx-auto my-12 grid grid-cols-2 md:my-52 md:flex md:flex-row md:items-center md:justify-around">
         <Image width={250} src={Zalisoft} alt="" />
         <Image width={250} src={Yılmar} alt="" />
         <Image width={250} src={Ermetal} alt="" />

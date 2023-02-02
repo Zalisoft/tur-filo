@@ -6,7 +6,7 @@ const Hakkımızda = () => {
     <div className="overflow-hidden">
       <Header />
       <CardHeader h1="Hakkımızda" />
-      <div className="container mx-auto my-52">
+      <div className="container mx-auto my-12 md:my-52">
         <h1 className="my-3 text-lg font-[500]">Faaliyetlerimiz:</h1>
         <p className="mb-10">
           2017 yılında kurulan Bursa bölgesinin öncü filo kiralama şirketi

@@ -11,13 +11,13 @@ const ÜrünlerGüvenceler = () => {
     <div className="overflow-hidden">
       <Header />
       <CardHeader h1="Ürünler & Güvenceler" />
-      <div className="container mx-auto my-52">
+      <div className="container mx-auto my-12 md:my-52">
         <div className="rounded-xl bg-white shadow">
           <h1 className="w-full rounded-t-xl bg-primary py-4 text-center text-4xl font-bold text-white">
             Ek Ürünler
           </h1>
-          <div className="grid grid-cols-3 gap-3 px-5">
-            <div className="m-5 mx-auto flex flex-col items-center justify-center rounded border-[1px] border-black px-12 py-4">
+          <div className="grid grid-cols-3 gap-1 px-5 md:gap-3">
+            <div className="m-5 mx-auto flex flex-col items-center justify-center rounded border-[1px] border-black px-2 py-4 md:px-12">
               <Image src={KışLastiği} alt="" width={250} />
               <h1 className="pt-5 text-lg font-bold text-primary">
                 Kış Lastiği
@@ -27,7 +27,7 @@ const ÜrünlerGüvenceler = () => {
                 hizmettir.
               </p>
             </div>
-            <div className="m-5 mx-auto flex flex-col items-center justify-center rounded border-[1px] border-black px-12 py-4">
+            <div className="m-5 mx-auto flex flex-col items-center justify-center rounded border-[1px] border-black px-2 py-4 md:px-12">
               <Image src={Driver} alt="" width={250} />
               <h1 className="pt-5 text-lg font-bold text-primary">Ek Sürücü</h1>
               <p className=" text-center">
@@ -35,7 +35,7 @@ const ÜrünlerGüvenceler = () => {
                 hizmettir.
               </p>
             </div>
-            <div className="m-5 mx-auto flex flex-col items-center justify-center rounded border-[1px] border-black px-12 py-4">
+            <div className="m-5 mx-auto flex flex-col items-center justify-center rounded border-[1px] border-black px-2 py-4 md:px-12">
               <Image src={BebekKoltuğu} alt="" width={250} />
               <h1 className="pt-5 text-lg font-bold text-primary">
                 Bebek Koltuğu
