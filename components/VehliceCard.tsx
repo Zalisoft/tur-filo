@@ -43,7 +43,7 @@ const VehliceCard = (props: Props) => {
             {marka} {model}
           </h2>
         </div>
-        <h1 className="text-2xl font-bold">{fiyat} TL/ gün</h1>
+        <h1 className="font-bold md:text-2xl">{fiyat} TL/ gün</h1>
       </header>
       <Image className="w-full p-5" src={img} alt="" />
       <div className="grid grid-cols-2 gap-6">

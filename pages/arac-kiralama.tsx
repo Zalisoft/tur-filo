@@ -1,24 +1,37 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import VehliceCard from "@/components/VehliceCard";
-import React from "react";
-import Egea from "@/public/images/araçlar/Fiat Egea.png";
+import CarFilterLink from "../components/CarFilterLink";
+import CarList from "@/lib/data/data.json";
 
 const AracKiralama = () => {
   return (
     <>
       <Header />
+      <nav className="hidden w-full grid-cols-7 bg-white md:grid">
+        <CarFilterLink exact href="/arac-kiralama" text="Tüm Araçlar" />
+        <CarFilterLink
+          href="/arac-kiralama/_kategori-ekonomik/"
+          text="Ekonomik Araçlar"
+        />
+        <CarFilterLink href="/arac-kiralama" text="Tüm Araçlar" />
+        <CarFilterLink href="/arac-kiralama" text="Tüm Araçlar" />
+        <CarFilterLink href="/arac-kiralama" text="Tüm Araçlar" />
+        <CarFilterLink href="/arac-kiralama" text="Tüm Araçlar" />
+        <CarFilterLink href="/arac-kiralama" text="Tüm Araçlar" />
+      </nav>
       <section className="container mx-auto">
-        <h1>Araçlar</h1>
-        <div className="grid grid-cols-4">
-          <VehliceCard
-            category="Ekonomik"
-            marka="Fiat"
-            model="Egea"
-            img={Egea}
-            fiyat={21000}
-            yolcu={12}
-          />
+        <div className="my-12 grid grid-cols-2 md:grid-cols-4">
+          {CarList.map((car) => (
+            <VehliceCard
+              category={car.category}
+              marka={car.marka}
+              model={car.model}
+              img={car.img}
+              fiyat={car.fiyat}
+              yolcu={car.yolcu}
+            />
+          ))}
         </div>
       </section>
       <Footer />
