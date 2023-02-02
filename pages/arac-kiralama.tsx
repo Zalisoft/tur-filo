@@ -57,16 +57,17 @@ const AracKiralama = () => {
       </nav>
       <section className="container mx-auto">
         <div className="my-12 grid grid-cols-2 md:grid-cols-4">
-          {/* {CarList.map((car) => (
-            <VehliceCard
-              category={car.category}
-              marka={car.marka}
-              model={car.model}
-              img={car.img}
-              fiyat={car.fiyat}
-              yolcu={car.yolcu}
-            />
-          ))} */}
+          {CarList.filter((care) => care.category === activeFilter).map(
+            (car) => (
+              <VehliceCard
+                category={car.category}
+                marka={car.marka}
+                model={car.model}
+                fiyat={car.fiyat}
+                yolcu={car.yolcu}
+              />
+            )
+          )}
         </div>
       </section>
       <Footer />

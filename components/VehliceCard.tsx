@@ -6,7 +6,7 @@ import Passangers from "@/public/icons/Passangers.jpeg";
 import Vites from "@/public/icons/Vites.jpeg";
 
 type Props = {
-  category: "Ekonomik" | "Konfor" | "Lüx" | "Prestij" | "Van" | "Ticari";
+  category: "Ekonomik" | "Konfor" | "Lüks" | "Prestij" | "Van" | "Ticari";
   marka:
     | "Audi"
     | "Audi"
@@ -26,11 +26,10 @@ type Props = {
   model: string;
   fiyat: number;
   yolcu: number;
-  img: String;
 };
 
 const VehliceCard = (props: Props) => {
-  const { category, marka, model, img, fiyat, yolcu } = props;
+  const { category, marka, model, fiyat, yolcu } = props;
   return (
     <section className="flex h-[32rem] flex-col justify-between p-5 shadow-lg">
       <header className="flex items-center justify-between">

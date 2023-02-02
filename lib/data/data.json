@@ -1,9 +1,43 @@
 [
   {
-    "category": "Ekonomik",
+    "category": "Ekonomik Araçlar",
     "marka": "Fiat",
     "model": "Egea",
-    "img": "./public/images/araçlar/Fiat Egea.png",
+    "fiyat": 450,
+    "yolcu": 5
+  },
+  {
+    "category": "Lüks Araçlar",
+    "marka": "Fiat",
+    "model": "Egea",
+    "fiyat": 450,
+    "yolcu": 5
+  },
+  {
+    "category": "Konfor Araçlar",
+    "marka": "Fiat",
+    "model": "Egea",
+    "fiyat": 450,
+    "yolcu": 5
+  },
+  {
+    "category": "Ekonomik Araçlar",
+    "marka": "Fiat",
+    "model": "Egea",
+    "fiyat": 450,
+    "yolcu": 5
+  },
+  {
+    "category": "Ekonomik Araçlar",
+    "marka": "Fiat",
+    "model": "Egea",
+    "fiyat": 450,
+    "yolcu": 5
+  },
+  {
+    "category": "Ekonomik Araçlar",
+    "marka": "Fiat",
+    "model": "Egea",
     "fiyat": 450,
     "yolcu": 5
   }
