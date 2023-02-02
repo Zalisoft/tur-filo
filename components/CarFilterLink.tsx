@@ -1,30 +1,45 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import React from "react";
 import { twMerge } from "tailwind-merge";
+import React from "react";
 
 type Props = {
-  href: string;
-  text: string;
-  exact?: boolean;
+  text:
+    | "Tüm Araçlar"
+    | "Ekonomik Araçlar"
+    | "Konfor Araçlar"
+    | "Prestij Araçlar"
+    | "Van"
+    | "Ticari Araçlar"
+    | "Lüks Araçlar";
+  active: string;
+  setActive: React.Dispatch<
+    React.SetStateAction<
+      | "Tüm Araçlar"
+      | "Ekonomik Araçlar"
+      | "Konfor Araçlar"
+      | "Prestij Araçlar"
+      | "Van"
+      | "Ticari Araçlar"
+      | "Lüks Araçlar"
+    >
+  >;
 };
 
 const CarFilterLink = (props: Props) => {
-  const { href, text, exact = false } = props;
-  const { pathname } = useRouter();
-  const isActive = exact ? pathname === href : pathname.startsWith(href);
+  const { text, active, setActive } = props;
 
   return (
-    <Link
-      href={href}
+    <button
       className={twMerge(
-        `mx-1 px-2 py-2 text-center text-xs  text-primary`,
-        `${isActive && "!bg-black !text-white"}`,
-        `hover:bg-white hover:bg-opacity-25`
+        ` mx-1 rounded-full px-2 py-2 text-center text-primary transition-all`,
+        `hover:bg-primary hover:text-white`,
+        `${active === text && "!bg-black !text-lg !font-bold !text-white"}`
       )}
+      onClick={() => {
+        setActive(text);
+      }}
     >
       {text}
-    </Link>
+    </button>
   );
 };
 

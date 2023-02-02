@@ -3,7 +3,6 @@ import ABS from "@/public/icons/abs.jpeg";
 import Airbag from "@/public/icons/Airbag.jpeg";
 import Fuel from "@/public/icons/Fuel.jpeg";
 import Passangers from "@/public/icons/Passangers.jpeg";
-import Usage from "@/public/icons/Usage.jpeg";
 import Vites from "@/public/icons/Vites.jpeg";
 
 type Props = {
@@ -25,9 +24,9 @@ type Props = {
     | "Volkswagen"
     | "Volvo";
   model: string;
-  img: StaticImageData;
   fiyat: number;
   yolcu: number;
+  img: String;
 };
 
 const VehliceCard = (props: Props) => {
@@ -45,7 +44,7 @@ const VehliceCard = (props: Props) => {
         </div>
         <h1 className="font-bold md:text-2xl">{fiyat} TL/ gün</h1>
       </header>
-      <Image className="w-full p-5" src={img} alt="" />
+      <img className="w-full p-5" src={undefined} alt="" />
       <div className="grid grid-cols-2 gap-6">
         <h1 className="flex items-center gap-2">
           <Image width={30} src={Passangers} alt="" />

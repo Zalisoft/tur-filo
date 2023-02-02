@@ -3,7 +3,7 @@
     "category": "Ekonomik",
     "marka": "Fiat",
     "model": "Egea",
-    "img": "@/public/images/araçlar/Fiat Egea.png",
+    "img": "./public/images/araçlar/Fiat Egea.png",
     "fiyat": 450,
     "yolcu": 5
   }

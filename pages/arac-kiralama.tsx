@@ -3,26 +3,61 @@ import Header from "@/components/Header";
 import VehliceCard from "@/components/VehliceCard";
 import CarFilterLink from "../components/CarFilterLink";
 import CarList from "@/lib/data/data.json";
+import { useState } from "react";
 
 const AracKiralama = () => {
+  const [activeFilter, setActiveFilter] = useState<
+    | "Tüm Araçlar"
+    | "Ekonomik Araçlar"
+    | "Konfor Araçlar"
+    | "Prestij Araçlar"
+    | "Van"
+    | "Ticari Araçlar"
+    | "Lüks Araçlar"
+  >("Tüm Araçlar");
   return (
     <>
       <Header />
-      <nav className="hidden w-full grid-cols-7 bg-white md:grid">
-        <CarFilterLink exact href="/arac-kiralama" text="Tüm Araçlar" />
+      <nav className="hidden w-full grid-cols-7 bg-white px-36 py-6 md:grid">
         <CarFilterLink
-          href="/arac-kiralama/_kategori-ekonomik/"
+          active={activeFilter}
+          setActive={setActiveFilter}
+          text="Tüm Araçlar"
+        />
+        <CarFilterLink
+          active={activeFilter}
+          setActive={setActiveFilter}
           text="Ekonomik Araçlar"
         />
-        <CarFilterLink href="/arac-kiralama" text="Tüm Araçlar" />
-        <CarFilterLink href="/arac-kiralama" text="Tüm Araçlar" />
-        <CarFilterLink href="/arac-kiralama" text="Tüm Araçlar" />
-        <CarFilterLink href="/arac-kiralama" text="Tüm Araçlar" />
-        <CarFilterLink href="/arac-kiralama" text="Tüm Araçlar" />
+        <CarFilterLink
+          active={activeFilter}
+          setActive={setActiveFilter}
+          text="Konfor Araçlar"
+        />
+        <CarFilterLink
+          active={activeFilter}
+          setActive={setActiveFilter}
+          text="Prestij Araçlar"
+        />
+        <CarFilterLink
+          active={activeFilter}
+          setActive={setActiveFilter}
+          text="Van"
+        />
+        <CarFilterLink
+          active={activeFilter}
+          setActive={setActiveFilter}
+          text="Ticari Araçlar"
+        />
+        <CarFilterLink
+          active={activeFilter}
+          setActive={setActiveFilter}
+          text="Lüks Araçlar"
+        />
       </nav>
       <section className="container mx-auto">
         <div className="my-12 grid grid-cols-2 md:grid-cols-4">
-          {CarList.map((car) => (
+          {/* {CarList.map((car) => (
             <VehliceCard
               category={car.category}
               marka={car.marka}
@@ -31,7 +66,7 @@ const AracKiralama = () => {
               fiyat={car.fiyat}
               yolcu={car.yolcu}
             />
-          ))}
+          ))} */}
         </div>
       </section>
       <Footer />
