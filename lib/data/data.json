@@ -1,43 +1,43 @@
 [
   {
-    "category": "Ekonomik Araçlar",
+    "category": "Ekonomik",
     "marka": "Fiat",
     "model": "Egea",
     "fiyat": 450,
     "yolcu": 5
   },
   {
-    "category": "Lüks Araçlar",
+    "category": "Ekonomik",
     "marka": "Fiat",
-    "model": "Egea",
+    "model": "Cross",
+    "fiyat": 600,
+    "yolcu": 5
+  },
+  {
+    "category": "Ekonomik",
+    "marka": "Fiat",
+    "model": "Egea HB",
     "fiyat": 450,
     "yolcu": 5
   },
   {
-    "category": "Konfor Araçlar",
-    "marka": "Fiat",
-    "model": "Egea",
+    "category": "Ekonomik",
+    "marka": "Citroen",
+    "model": "C Ellsye",
+    "fiyat": 400,
+    "yolcu": 5
+  },
+  {
+    "category": "Ekonomik",
+    "marka": "Dacia",
+    "model": "Sandero",
     "fiyat": 450,
     "yolcu": 5
   },
   {
-    "category": "Ekonomik Araçlar",
-    "marka": "Fiat",
-    "model": "Egea",
-    "fiyat": 450,
-    "yolcu": 5
-  },
-  {
-    "category": "Ekonomik Araçlar",
-    "marka": "Fiat",
-    "model": "Egea",
-    "fiyat": 450,
-    "yolcu": 5
-  },
-  {
-    "category": "Ekonomik Araçlar",
-    "marka": "Fiat",
-    "model": "Egea",
+    "category": "Lüks",
+    "marka": "Hyundai",
+    "model": "i20",
     "fiyat": 450,
     "yolcu": 5
   }

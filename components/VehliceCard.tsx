@@ -6,23 +6,8 @@ import Passangers from "@/public/icons/Passangers.jpeg";
 import Vites from "@/public/icons/Vites.jpeg";
 
 type Props = {
-  category: "Ekonomik" | "Konfor" | "Lüks" | "Prestij" | "Van" | "Ticari";
-  marka:
-    | "Audi"
-    | "Audi"
-    | "BMW"
-    | "Citroen"
-    | "Dacia"
-    | "Fiat"
-    | "Ford"
-    | "Honda"
-    | "Hyundai"
-    | "Jeep"
-    | "Mercedes"
-    | "Opel"
-    | "Peugeot"
-    | "Volkswagen"
-    | "Volvo";
+  category: string;
+  marka: string;
   model: string;
   fiyat: number;
   yolcu: number;
@@ -30,8 +15,9 @@ type Props = {
 
 const VehliceCard = (props: Props) => {
   const { category, marka, model, fiyat, yolcu } = props;
+  let clasdas = "flex items-center gap-2";
   return (
-    <section className="flex h-[32rem] flex-col justify-between p-5 shadow-lg">
+    <section className="flex h-[32rem] flex-col justify-between bg-white p-5 shadow-lg">
       <header className="flex items-center justify-between">
         <div>
           <h3 className="text-xs font-bold text-primary">
@@ -49,7 +35,7 @@ const VehliceCard = (props: Props) => {
           <Image width={30} src={Passangers} alt="" />
           {yolcu}
         </h1>
-        <h1 className="flex items-center gap-2">
+        <h1 className={clasdas}>
           <Image width={30} src={Airbag} alt="" />
           Airbag
         </h1>

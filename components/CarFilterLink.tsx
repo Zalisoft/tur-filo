@@ -2,30 +2,14 @@ import { twMerge } from "tailwind-merge";
 import React from "react";
 
 type Props = {
-  text:
-    | "Tüm Araçlar"
-    | "Ekonomik Araçlar"
-    | "Konfor Araçlar"
-    | "Prestij Araçlar"
-    | "Van"
-    | "Ticari Araçlar"
-    | "Lüks Araçlar";
+  araç?: boolean;
+  text: string;
   active: string;
-  setActive: React.Dispatch<
-    React.SetStateAction<
-      | "Tüm Araçlar"
-      | "Ekonomik Araçlar"
-      | "Konfor Araçlar"
-      | "Prestij Araçlar"
-      | "Van"
-      | "Ticari Araçlar"
-      | "Lüks Araçlar"
-    >
-  >;
+  setActive: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const CarFilterLink = (props: Props) => {
-  const { text, active, setActive } = props;
+  const { araç = true, text, active, setActive } = props;
 
   return (
     <button
@@ -39,6 +23,7 @@ const CarFilterLink = (props: Props) => {
       }}
     >
       {text}
+      {araç && " Araçlar"}
     </button>
   );
 };
