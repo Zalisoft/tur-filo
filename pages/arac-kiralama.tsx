@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const AracKiralama = () => {
   const [categoryFilter, setCategoryFilter] = useState<string>("Tüm");
-  const [nameFilter, setNameFilter] = useState<String>(""); //------------TODO: Araç filtresindeki search bar--------------
+  const [nameFilter, setNameFilter] = useState<string>("");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(20000);
   const [markaFilter, setMarkaFilter] = useState<string>("Tüm");
@@ -109,7 +109,13 @@ const AracKiralama = () => {
           </label>
           <label className="flex flex-col ">
             Ara
-            <input className="border-2 border-gray-200 " />
+            <input
+              className="border-2 border-gray-200"
+              value={nameFilter}
+              onChange={(e) => {
+                setNameFilter(e.target.value);
+              }}
+            />
           </label>
           <label className="flex flex-col text-white">
             -<button className="w-full bg-secondary text-black">Yenile</button>
@@ -123,7 +129,15 @@ const AracKiralama = () => {
               listItem.fiyat > minPrice &&
               listItem.fiyat < maxPrice &&
               (listItem.marka === markaFilter || markaFilter === "Tüm") &&
-              (listItem.category === categoryFilter || categoryFilter === "Tüm")
+              (listItem.category === categoryFilter ||
+                categoryFilter === "Tüm") &&
+              (listItem.model
+                .toLowerCase()
+                .includes(nameFilter.toLowerCase()) ||
+                listItem.marka
+                  .toLowerCase()
+                  .includes(nameFilter.toLowerCase()) ||
+                nameFilter === "")
           ).map((car, index) => (
             <VehliceCard
               key={index}
