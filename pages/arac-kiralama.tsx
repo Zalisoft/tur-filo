@@ -54,8 +54,8 @@ const AracKiralama = () => {
         />
       </nav>
       <header
-        className={`container fixed left-[50%] rounded border-2 border-gray-200 bg-white py-4 px-8 transition-all`}
-        style={{ transform: `translate(-50% , 0)` }}
+        className={`container mx-auto rounded border-2 border-gray-200 bg-white py-4 px-8 transition-all`}
+        style={{ transform: `translate(0 , 0)` }}
       >
         <form className="grid grid-cols-4 gap-3">
           <label className="flex flex-col">
@@ -94,7 +94,7 @@ const AracKiralama = () => {
                 onChange={(e) => {
                   setMinPrice(Number(e.target.value));
                 }}
-                className="w-[40%] border-2 border-gray-200"
+                className="w-[45%] border-2 border-gray-200"
               />
               -
               <input
@@ -103,7 +103,7 @@ const AracKiralama = () => {
                 onChange={(e) => {
                   setMaxPrice(Number(e.target.value));
                 }}
-                className="w-[40%] border-2 border-gray-200"
+                className="w-[45%] border-2 border-gray-200"
               />
             </div>
           </label>
@@ -123,7 +123,7 @@ const AracKiralama = () => {
         </form>
       </header>
       <section className="container mx-auto flex">
-        <div className="my-12 grid grid-cols-2 gap-3 md:mb-12 md:mt-36 md:grid-cols-4">
+        <div className="my-12 grid grid-cols-2 gap-3 md:grid-cols-4">
           {CarList.filter(
             (listItem) =>
               listItem.fiyat > minPrice &&

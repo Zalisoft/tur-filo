@@ -21,15 +21,15 @@ const barStyle = "px-4 py-2 border-[1px] rounded";
 export default function LoginForm() {
   const bireyselSchema = yup
     .object<Record<keyof Inputs, yup.AnySchema>>({
-      kurum: yup.string().notRequired(),
-      ad: yup.number().required(),
-      soyad: yup.string().required(),
-      tel: yup.string().required(),
-      email: yup.string().required(),
-      araçSay: yup.number().notRequired(),
-      alış: yup.date().required(),
-      iade: yup.date().required(),
-      msg: yup.string().notRequired(),
+      kurum: yup.string(),
+      ad: yup.number(),
+      soyad: yup.string(),
+      tel: yup.string(),
+      email: yup.string(),
+      araçSay: yup.number(),
+      alış: yup.date(),
+      iade: yup.date(),
+      msg: yup.string(),
     })
     .required();
 
@@ -47,7 +47,7 @@ export default function LoginForm() {
     reset();
   };
   return (
-    <>
+    <div className="mx-auto w-full bg-secondary px-12 py-24 md:w-[50rem] md:rounded-xl md:py-24">
       <div className="flex w-full items-center justify-around">
         <button
           onClick={(e) => {
@@ -152,6 +152,6 @@ export default function LoginForm() {
           Rezervasyon Yap
         </button>
       </form>
-    </>
+    </div>
   );
 }

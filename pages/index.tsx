@@ -24,9 +24,7 @@ const Home: NextPage = () => {
           <h1 className="absolute left-[50%] translate-y-2 translate-x-[-50%] bg-primary px-12 py-4 text-5xl font-bold text-white md:translate-y-[-1.5rem]">
             Rezervasyon
           </h1>
-          <form className="mx-auto w-full bg-secondary px-12 py-24 md:w-[50rem] md:rounded-xl md:py-24">
-            <LoginForm />
-          </form>
+          <LoginForm /> {/* TODO Hidrasyon Hatası sebebi */}
         </div>
       </section>
       {/* --Banner-- */}
