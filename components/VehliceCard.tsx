@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import ABS from "@/public/icons/abs.jpeg";
 import Airbag from "@/public/icons/Airbag.jpeg";
 import Fuel from "@/public/icons/Fuel.jpeg";
@@ -9,27 +9,30 @@ type Props = {
   category: string;
   marka: string;
   model: string;
+  additive?: string;
   fiyat: number;
   yolcu: number;
 };
 
 const VehliceCard = (props: Props) => {
-  const { category, marka, model, fiyat, yolcu } = props;
+  const { category, marka, model, fiyat, yolcu, additive } = props;
   let clasdas = "flex items-center gap-2";
   return (
     <section className="flex h-[32rem] flex-col justify-between bg-white p-5 shadow-lg">
-      <header className="flex items-center justify-between">
-        <div>
-          <h3 className="text-xs font-bold text-primary">
-            {category} Kiralık Araçlar
-          </h3>
-          <h2 className="text-xl font-bold">
-            {marka} {model}
-          </h2>
-        </div>
-        <h1 className="font-bold md:text-2xl">{fiyat} TL/ gün</h1>
+      <header className="grid grid-cols-2">
+        <h3 className="text-xs font-bold text-primary">
+          {category} Kiralık Araçlar
+        </h3>
+        <h2 className="row-span-2 text-left text-lg font-bold">
+          {marka} {model} {additive && additive}
+        </h2>
+        <h1 className="font-bold md:text-base lg:text-2xl ">{fiyat} TL/ gün</h1>
       </header>
-      <img className="w-full p-5" src={undefined} alt="" />
+      <Image
+        className="w-full p-5"
+        src={require(`../public/images/araçlar/${category}/${marka} ${model}.png`)}
+        alt=""
+      />
       <div className="grid grid-cols-2 gap-6">
         <h1 className="flex items-center gap-2">
           <Image width={30} src={Passangers} alt="" />

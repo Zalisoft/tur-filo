@@ -9,7 +9,7 @@ const AracKiralama = () => {
   const [categoryFilter, setCategoryFilter] = useState<string>("Tüm");
   const [nameFilter, setNameFilter] = useState<string>("");
   const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(20000);
+  const [maxPrice, setMaxPrice] = useState(2250);
   const [markaFilter, setMarkaFilter] = useState<string>("Tüm");
 
   return (
@@ -37,10 +37,9 @@ const AracKiralama = () => {
           text="Prestij"
         />
         <CarFilterLink
-          araç={false}
           active={categoryFilter}
           setActive={setCategoryFilter}
-          text="Van"
+          text="Lüks"
         />
         <CarFilterLink
           active={categoryFilter}
@@ -48,9 +47,10 @@ const AracKiralama = () => {
           text="Ticari"
         />
         <CarFilterLink
+          araç={false}
           active={categoryFilter}
           setActive={setCategoryFilter}
-          text="Lüks"
+          text="Van"
         />
       </nav>
       <header
@@ -126,8 +126,8 @@ const AracKiralama = () => {
         <div className="my-12 grid grid-cols-2 gap-3 md:grid-cols-4">
           {CarList.filter(
             (listItem) =>
-              listItem.fiyat > minPrice &&
-              listItem.fiyat < maxPrice &&
+              listItem.fiyat >= minPrice &&
+              listItem.fiyat <= maxPrice &&
               (listItem.marka === markaFilter || markaFilter === "Tüm") &&
               (listItem.category === categoryFilter ||
                 categoryFilter === "Tüm") &&
@@ -146,6 +146,7 @@ const AracKiralama = () => {
               model={car.model}
               fiyat={car.fiyat}
               yolcu={car.yolcu}
+              additive={car.additive}
             />
           ))}
         </div>
