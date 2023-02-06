@@ -59,7 +59,7 @@ const Home: NextPage = () => {
         <Image className="hidden xl:inline" src={Logo} alt="" />
       </div>
       {/* --Cards-- */}
-      <div className="mx-auto my-40 flex h-[20rem] w-full gap-5 md:h-[400px] md:w-[80vw]">
+      <div className="mx-auto my-40 flex h-[20rem] w-full gap-5 lg:h-[30rem] lg:w-[80vw]">
         <Card
           img={Driver}
           h1="Şoförlü Kiralama"

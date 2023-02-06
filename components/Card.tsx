@@ -15,7 +15,7 @@ const Card = (props: Props) => {
     <div className="relative w-full overflow-hidden border-[4px] border-black">
       <Image className="z-2 absolute h-full bg-black" src={img} alt="" />
       <div className="z-3 absolute h-full w-full bg-[rgba(0,0,0,.6)]">
-        <h1 className="z-4 mt-[50%] bg-primary py-2 px-2 text-2xl font-bold text-white">
+        <h1 className="z-4 mt-[10rem] bg-primary py-2 px-2 text-sm font-bold text-white lg:mt-[15rem] lg:text-2xl">
           {h1}
         </h1>
         <h2 className="z-4 bg-black font-bold text-white">{h2}</h2>
