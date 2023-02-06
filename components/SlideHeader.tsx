@@ -9,7 +9,7 @@ type Props = {
 const SlideHeader = (props: Props) => {
   const { bool, setBool } = props;
   const classOfIt =
-    "transition-all border-white border-2 text-white py-2 hover:font-bold";
+    "transition-all border-white border-2 text-white py-2 hover:font-bold hover:bg-white hover:text-primary";
   return (
     <>
       <div
@@ -23,7 +23,7 @@ const SlideHeader = (props: Props) => {
         }}
       />
       <header
-        className="fixed right-0 z-[99] h-screen w-[50vw] bg-primary transition-all"
+        className="fixed right-0 z-[99] h-screen w-[90vw] bg-primary transition-all"
         style={{ right: `${bool ? 0 : "-100vw"}` }}
         onClick={(e) => {
           e.stopPropagation();
