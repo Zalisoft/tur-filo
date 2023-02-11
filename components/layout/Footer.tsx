@@ -8,8 +8,8 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="flex w-full flex-col items-center justify-center bg-primary py-5">
-      <Image className="mx-auto mt-5 mb-12" src={Logo} alt="" />
-      <div className="flex justify-around gap-10 px-12 text-white">
+      <Image className="mx-auto mt-5 mb-12 px-10" src={Logo} alt="" />
+      <div className="grid grid-cols-1 gap-10 px-12 text-white md:flex md:justify-around">
         <div className="flex flex-col">
           <h1 className="mb-5 text-xl font-bold">Navigasyon</h1>
           <Link
@@ -38,7 +38,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className="flex flex-col">
-          <h1 className="mx-auto mb-5 text-xl font-bold">Adres</h1>
+          <h1 className="mb-5 text-xl font-bold md:mx-auto">Adres</h1>
           <h4>
             Beşevler Mahallesi Yıldırım Caddesi Özkök Sokak Yıldız İş Merkezi No
             5/4
