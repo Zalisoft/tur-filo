@@ -7,16 +7,21 @@ import BebekKoltuğu from "@/public/icons/BebekKoltuğu.jpeg";
 const ÜrünlerGüvenceler = () => {
   return (
     <div className="overflow-hidden">
-      <CardHeader h1="Ürünler & Güvenceler" />
-      <div className="container mx-auto my-12 md:my-52">
+      <CardHeader h1="Ürünler & Güvenceler" sm />
+      <div className="container mx-auto my-12 px-5 md:my-52">
         <div className="rounded-xl bg-white shadow">
           <h1 className="w-full rounded-t-xl bg-primary py-4 text-center text-4xl font-bold text-white">
             Ek Ürünler
           </h1>
-          <div className="grid grid-cols-3 gap-1 px-5 md:gap-3">
-            <div className="m-5 mx-auto flex flex-col items-center justify-center rounded border-[1px] border-black px-2 py-4 md:px-12">
-              <Image src={KışLastiği} alt="" width={250} />
-              <h1 className="pt-5 text-lg font-bold text-primary">
+          <div className="grid grid-cols-1 gap-1 px-5 md:gap-3">
+            <div className="my-2 mx-auto flex flex-col items-center justify-center rounded border-black px-2 md:border-[1px] md:py-4 md:px-12">
+              <Image
+                className="hidden md:inline"
+                src={KışLastiği}
+                alt=""
+                width={250}
+              />
+              <h1 className="text-center text-lg font-bold text-primary md:pt-5">
                 Kış Lastiği
               </h1>
               <p className=" text-center">
@@ -24,17 +29,29 @@ const ÜrünlerGüvenceler = () => {
                 hizmettir.
               </p>
             </div>
-            <div className="m-5 mx-auto flex flex-col items-center justify-center rounded border-[1px] border-black px-2 py-4 md:px-12">
-              <Image src={Driver} alt="" width={250} />
-              <h1 className="pt-5 text-lg font-bold text-primary">Ek Sürücü</h1>
+            <div className="my-2 mx-auto flex flex-col items-center justify-center rounded border-black px-2 md:border-[1px] md:py-4 md:px-12">
+              <Image
+                className="hidden md:inline"
+                src={Driver}
+                alt=""
+                width={250}
+              />
+              <h1 className="text-center text-lg font-bold text-primary md:pt-5">
+                Ek Sürücü
+              </h1>
               <p className=" text-center">
                 Aracı kiralayan kişi haricinde bir sürücü sağlayan bir ek
                 hizmettir.
               </p>
             </div>
-            <div className="m-5 mx-auto flex flex-col items-center justify-center rounded border-[1px] border-black px-2 py-4 md:px-12">
-              <Image src={BebekKoltuğu} alt="" width={250} />
-              <h1 className="pt-5 text-lg font-bold text-primary">
+            <div className="my-2 mx-auto flex flex-col items-center justify-center rounded border-black px-2 md:border-[1px] md:py-4 md:px-12">
+              <Image
+                className="hidden md:inline"
+                src={BebekKoltuğu}
+                alt=""
+                width={250}
+              />
+              <h1 className="text-center text-lg font-bold text-primary md:pt-5">
                 Bebek Koltuğu
               </h1>
               <p className=" text-center">
@@ -48,8 +65,8 @@ const ÜrünlerGüvenceler = () => {
           <h1 className="w-full rounded-t-xl bg-primary py-4 text-center text-4xl font-bold text-white">
             Güvenceler
           </h1>
-          <div className="grid grid-cols-5 border-b-[1px] border-black p-5">
-            <h1 className="col-span-1 text-right text-xl font-bold text-primary">
+          <div className="border-b-[1px] border-black p-5 md:grid md:grid-cols-5">
+            <h1 className="col-span-1 text-center text-xl font-bold text-primary md:text-right">
               Zorunlu trafik sigortası:
             </h1>
             <p className="col-span-4 pl-2 pb-10">
@@ -59,8 +76,8 @@ const ÜrünlerGüvenceler = () => {
               sizi güvence altına alan bir sigorta ürünüdür.
             </p>
           </div>
-          <div className="grid grid-cols-5 border-b-[1px] border-black p-5">
-            <h1 className="col-span-1 text-right text-xl font-bold text-primary">
+          <div className="border-b-[1px] border-black p-5 md:grid md:grid-cols-5">
+            <h1 className="col-span-1 text-center text-xl font-bold text-primary md:text-right">
               Filo Kasko:
             </h1>
             <p className="col-span-4 pl-2 pb-10">
@@ -69,8 +86,8 @@ const ÜrünlerGüvenceler = () => {
               uygun maliyetler ile toplu halde sigortalanabilmesi imkanı sağlar.
             </p>
           </div>
-          <div className="grid grid-cols-5 p-5">
-            <h1 className="col-span-1 text-right text-xl font-bold text-primary">
+          <div className="p-5 md:grid md:grid-cols-5">
+            <h1 className="col-span-1 text-center text-xl font-bold text-primary md:text-right">
               Full rent a car kasko:
             </h1>
             <p className="col-span-4 pl-2 pb-10">

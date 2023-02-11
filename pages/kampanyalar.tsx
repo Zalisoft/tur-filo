@@ -32,7 +32,7 @@ const Kampanyalar = () => {
           <Image src={Egea} alt="" />
         </div>
         <div className="flex flex-col items-center justify-center gap-10 bg-white p-5">
-          <h1 className="text-center text-center text-xl font-bold text-primary md:text-4xl">
+          <h1 className="text-center text-xl font-bold text-primary md:text-4xl">
             Renault Clio
           </h1>
           <div className="flex flex-col items-center justify-center">
