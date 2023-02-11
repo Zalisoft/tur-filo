@@ -1,6 +1,4 @@
 import CardHeader from "@/components/CardHeader";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import Image from "next/image";
 import KışLastiği from "@/public/icons/KışLastiği.jpeg";
 import Driver from "@/public/icons/Driver.jpeg";
@@ -9,7 +7,6 @@ import BebekKoltuğu from "@/public/icons/BebekKoltuğu.jpeg";
 const ÜrünlerGüvenceler = () => {
   return (
     <div className="overflow-hidden">
-      <Header />
       <CardHeader h1="Ürünler & Güvenceler" />
       <div className="container mx-auto my-12 md:my-52">
         <div className="rounded-xl bg-white shadow">
@@ -85,7 +82,6 @@ const ÜrünlerGüvenceler = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

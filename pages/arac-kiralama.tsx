@@ -1,5 +1,3 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import VehliceCard from "@/components/VehliceCard";
 import CarFilterLink from "../components/CarFilterLink";
 import CarList from "@/lib/data/data.json";
@@ -14,7 +12,6 @@ const AracKiralama = () => {
 
   return (
     <div className="overflow-hidden">
-      <Header />
       <nav className="hidden w-full grid-cols-7 bg-white px-36 py-6 md:grid">
         <CarFilterLink
           active={categoryFilter}
@@ -151,7 +148,6 @@ const AracKiralama = () => {
           ))}
         </div>
       </section>
-      <Footer />
     </div>
   );
 };

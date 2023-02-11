@@ -1,10 +1,6 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-
 const ŞoförlüKiralama = () => {
   return (
     <section className="overflow-hidden">
-      <Header />
       <div className="container mx-auto my-12 flex flex-col gap-3">
         <h1 className="text-2xl font-bold text-primary">
           Şoförlü Kiralama Nedir?{" "}
@@ -87,7 +83,6 @@ const ŞoförlüKiralama = () => {
           <li>Van; 7 TL + KDV</li>
         </ul>
       </div>
-      <Footer />
     </section>
   );
 };

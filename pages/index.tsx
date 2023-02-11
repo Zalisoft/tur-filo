@@ -1,8 +1,6 @@
 import type { NextPage } from "next";
-import Header from "@/components/Header";
 import Image from "next/image";
 import QR from "@/public/images/QR.jpeg";
-import Footer from "@/components/Footer";
 import { FaCar, FaCarCrash, FaCaravan } from "react-icons/fa";
 import { GiSpeedometer } from "react-icons/gi";
 import Logo from "@/public/icons/Logo-white.png";
@@ -15,7 +13,6 @@ import LoginForm from "@/components/LoginForm";
 const Home: NextPage = () => {
   return (
     <div className="overflow-hidden">
-      <Header />
       {/* --Form-- */}
       <section
         className={`fixed-BG relative h-[76vh] w-full md:!bg-secondary md:p-8`}
@@ -78,8 +75,6 @@ const Home: NextPage = () => {
           h2="YAKINDA!!!"
         />
       </div>
-
-      <Footer />
     </div>
   );
 };

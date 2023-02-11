@@ -1,6 +1,4 @@
 import CardHeader from "@/components/CardHeader";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import Egea from "@/public/images/araçlar/Fiat Egea.png";
 import Clio from "@/public/images/araçlar/Renault Clio.png";
 import Tailant from "@/public/images/araçlar/Renault Tailant.png";
@@ -9,7 +7,6 @@ import Image from "next/image";
 const Kampanyalar = () => {
   return (
     <section className="overflow-hidden">
-      <Header />
       <CardHeader h1="Kampanyalar" />
       <div className="container mx-auto my-12 grid grid-cols-3 gap-5">
         <div className="flex flex-col items-center justify-center gap-10 bg-white p-5">
@@ -79,7 +76,6 @@ const Kampanyalar = () => {
           <Image src={Tailant} alt="" />
         </div>
       </div>
-      <Footer />
     </section>
   );
 };

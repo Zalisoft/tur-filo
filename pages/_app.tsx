@@ -2,6 +2,8 @@ import "../styles/globals.scss";
 import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
 import { useRouter } from "next/router";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -39,7 +41,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           cardType: "turfilokiralama",
         }}
       />
+      <Header />
       <Component {...pageProps} />
+      <Footer />
     </>
   );
 }

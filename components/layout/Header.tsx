@@ -1,11 +1,11 @@
 import Image from "next/image";
-import NavLink from "./NavLink";
+import NavLink from "../NavLink";
 import Logo from "@/public/icons/Logo-white.png";
 import Link from "next/link";
 import { BsWhatsapp } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { twMerge } from "tailwind-merge";
-import SlideHeader from "./SlideHeader";
+import SlideHeader from "../SlideHeader";
 import { useState } from "react";
 
 const Header = () => {

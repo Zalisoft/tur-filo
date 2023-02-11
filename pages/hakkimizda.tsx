@@ -1,10 +1,7 @@
 import CardHeader from "@/components/CardHeader";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 const Hakkımızda = () => {
   return (
     <div className="overflow-hidden">
-      <Header />
       <CardHeader h1="Hakkımızda" />
       <div className="container mx-auto my-12 md:my-52">
         <h1 className="my-3 text-lg font-[500]">Faaliyetlerimiz:</h1>
@@ -24,7 +21,6 @@ const Hakkımızda = () => {
         </h1>
         <p>Mutlu, güvenli ve kaliteli hizmet. </p>
       </div>
-      <Footer />
     </div>
   );
 };
