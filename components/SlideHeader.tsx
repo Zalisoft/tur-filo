@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { GrClose } from "react-icons/gr";
 
 type Props = {
   bool: boolean;
@@ -29,6 +30,12 @@ const SlideHeader = (props: Props) => {
           e.stopPropagation();
         }}
       >
+        <GrClose
+          onClick={() => {
+            setBool(false);
+          }}
+          className="ml-auto mr-2 mt-2 bg-white"
+        />
         <ul className="mt-[100px] grid gap-2 px-10 text-center">
           <Link
             onClick={() => {
