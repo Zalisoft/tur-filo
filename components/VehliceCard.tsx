@@ -16,45 +16,47 @@ type Props = {
 
 const VehliceCard = (props: Props) => {
   const { category, marka, model, fiyat, yolcu, additive } = props;
-  let clasdas = "flex items-center gap-2";
+  let categoryTextClass = "flex items-center text-[.6rem] md:text-base gap-2";
   return (
-    <section className="flex h-[32rem] flex-col justify-between bg-white p-5 shadow-lg">
+    <section className="flex flex-col justify-between bg-white p-2 shadow-lg md:h-[32rem] md:p-5">
       <header className="grid grid-cols-2">
-        <h3 className="text-xs font-bold text-primary">
+        <h3 className="col-span-2 text-[.5rem] font-bold text-primary md:col-span-1 md:text-xs">
           {category} Kiralık Araçlar
         </h3>
-        <h2 className="row-span-2 text-left text-lg font-bold">
+        <h2 className="row-span-2 text-left text-sm font-bold md:text-lg">
           {marka} {model} {additive && additive}
         </h2>
-        <h1 className="font-bold md:text-base lg:text-2xl ">{fiyat} TL/ gün</h1>
+        <h1 className="test-xs text-right font-bold md:text-base lg:text-2xl ">
+          {fiyat} TL/ gün
+        </h1>
       </header>
       <Image
-        className="w-full p-5"
+        className="my-2 w-full md:p-5"
         src={require(`../public/images/araçlar/${category}/${marka} ${model}.png`)}
         alt=""
       />
-      <div className="grid grid-cols-2 gap-6">
-        <h1 className="flex items-center gap-2">
-          <Image width={30} src={Passangers} alt="" />
+      <div className="grid grid-cols-2 gap-1 md:gap-6">
+        <h1 className={categoryTextClass}>
+          <Image className="w-[20px] md:w-[30px]" src={Passangers} alt="" />
           {yolcu}
         </h1>
-        <h1 className={clasdas}>
-          <Image width={30} src={Airbag} alt="" />
+        <h1 className={categoryTextClass}>
+          <Image className="w-[20px] md:w-[30px]" src={Airbag} alt="" />
           Airbag
         </h1>
-        <h1 className="flex items-center gap-2">
-          <Image width={30} src={ABS} alt="" />
+        <h1 className={categoryTextClass}>
+          <Image className="w-[20px] md:w-[30px]" src={ABS} alt="" />
           ABS
         </h1>
-        <h1 className="flex items-center gap-2">
-          <Image width={30} src={Fuel} alt="" />
+        <h1 className={categoryTextClass}>
+          <Image className="w-[20px] md:w-[30px]" src={Fuel} alt="" />
           Dizel, Benzin
         </h1>
-        <h1 className="flex items-center gap-2">
-          <Image width={30} src={Vites} alt="" />
+        <h1 className={categoryTextClass}>
+          <Image className="w-[20px] md:w-[30px]" src={Vites} alt="" />
           Otomatik, Manuel
         </h1>
-        <button className="bg-primary text-lg font-bold text-white">
+        <button className="s-full h-full bg-primary text-center text-xs font-bold text-white md:text-lg">
           Hemen Kirala
         </button>
       </div>

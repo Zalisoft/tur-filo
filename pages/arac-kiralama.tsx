@@ -55,7 +55,7 @@ const AracKiralama = () => {
         style={{ transform: `translate(0 , 0)` }}
       >
         <form className="grid grid-cols-4 gap-3">
-          <label className="flex flex-col">
+          <label className="flex flex-col text-xs md:text-base">
             Marka
             <select
               onChange={(e) => {
@@ -79,9 +79,9 @@ const AracKiralama = () => {
               <option value="Volvo">Volvo</option>
             </select>
           </label>
-          <label className="mx-auto flex flex-col">
+          <label className="mx-auto flex flex-col text-xs md:text-base">
             Fiyat Aralığı
-            <span className="absolute translate-x-[175%] text-sm text-gray-400">
+            <span className="absolute hidden text-xs text-gray-400 md:translate-x-[175%]">
               /günlük
             </span>
             <div>
@@ -104,7 +104,7 @@ const AracKiralama = () => {
               />
             </div>
           </label>
-          <label className="flex flex-col ">
+          <label className="flex flex-col text-xs md:text-base">
             Ara
             <input
               className="border-2 border-gray-200"
@@ -114,13 +114,13 @@ const AracKiralama = () => {
               }}
             />
           </label>
-          <label className="flex flex-col text-white">
+          <label className="flex flex-col text-xs text-white md:text-base">
             -<button className="w-full bg-secondary text-black">Yenile</button>
           </label>
         </form>
       </header>
       <section className="container mx-auto flex">
-        <div className="my-12 grid grid-cols-2 gap-3 md:grid-cols-4">
+        <div className="my-12 grid grid-cols-2 gap-3 px-5 md:grid-cols-4">
           {CarList.filter(
             (listItem) =>
               listItem.fiyat >= minPrice &&
