@@ -6,18 +6,27 @@ import Ergıda from "@/public/icons/Ergıda.png";
 import Ermetal from "@/public/icons/Ermetal.png";
 
 const referanslar = () => {
+  const textClass = "text-center text-xl font-[500]";
   return (
     <div className="overflow-hidden">
       <CardHeader h1="Referanslar" />
-      <div className="container mx-auto my-12 grid grid-cols-2 md:my-52 md:flex md:flex-row md:items-center md:justify-around">
-        <Image width={250} src={Zalisoft} alt="" />
-        <Image width={250} src={Yılmar} alt="" />
-        <h1 className="text-center">Zalisoft</h1>
-        <h1 className="text-center">Yılmar</h1>
-        <Image width={250} src={Ermetal} alt="" />
-        <Image width={250} src={Ergıda} alt="" />
-        <h1 className="text-center">Ermetal</h1>
-        <h1 className="text-center">Ergıda</h1>
+      <div className="container mx-auto my-12 grid grid-cols-2 md:my-52 md:flex md:h-[300px] md:flex-row md:items-center md:justify-around">
+        <div className="flex h-full flex-col justify-between">
+          <Image className="px-5" width={225} src={Zalisoft} alt="" />
+          <h1 className={textClass}>Zalisoft</h1>
+        </div>
+        <div className="flex h-full flex-col justify-between">
+          <Image className="px-5" width={225} src={Yılmar} alt="" />
+          <h1 className={textClass}>Yılmar</h1>
+        </div>
+        <div className="flex h-full flex-col justify-between">
+          <Image className="px-5 pt-10" width={225} src={Ermetal} alt="" />
+          <h1 className={textClass}>Ermetal</h1>
+        </div>
+        <div className="flex h-full flex-col justify-between">
+          <Image className="px-5" width={225} src={Ergıda} alt="" />
+          <h1 className={textClass}>Ergıda</h1>
+        </div>
       </div>
     </div>
   );
