@@ -22,9 +22,9 @@ export default function LoginForm() {
   const bireyselSchema = yup
     .object<Record<keyof Inputs, yup.AnySchema>>({
       kurum: yup.string(),
-      ad: yup.number(),
+      ad: yup.string(),
       soyad: yup.string(),
-      tel: yup.string(),
+      tel: yup.number(),
       email: yup.string(),
       araçSay: yup.number(),
       alış: yup.date(),
@@ -140,7 +140,7 @@ export default function LoginForm() {
           type="date"
           required
         />
-        <input
+        <textarea
           className={twMerge(barStyle, "col-span-2 pb-[50px]")}
           {...register("msg")}
           placeholder="Mesajınız ve Talepleriniz (Opsiyonel)"

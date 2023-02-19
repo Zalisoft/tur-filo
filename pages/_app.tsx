@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   //TODO Change this SEO Defaults
   return (
-    <>
+    <div className="w-sceen overflow-hidden">
       <DefaultSeo
         defaultTitle="Next js React Web Project Template"
         titleTemplate="%s | Next js React Web Project Template"
@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Header />
       <Component {...pageProps} />
       <Footer />
-    </>
+    </div>
   );
 }
 
