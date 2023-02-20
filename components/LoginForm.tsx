@@ -2,7 +2,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { twMerge } from "tailwind-merge";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import emailJs from "@emailjs/browser";
 
 type Inputs = {
   kurum: string;
@@ -11,7 +12,7 @@ type Inputs = {
   tel: string;
   email: string;
   araçSay: number;
-  alış: Date;
+  take: Date;
   iade: Date;
   msg?: string;
 };
@@ -19,6 +20,8 @@ type Inputs = {
 const barStyle = "px-4 py-2 border-[1px] rounded";
 
 export default function LoginForm() {
+  const form = useRef<any>();
+
   const bireyselSchema = yup
     .object<Record<keyof Inputs, yup.AnySchema>>({
       kurum: yup.string(),
@@ -27,7 +30,7 @@ export default function LoginForm() {
       tel: yup.number(),
       email: yup.string(),
       araçSay: yup.number(),
-      alış: yup.date(),
+      take: yup.date(),
       iade: yup.date(),
       msg: yup.string(),
     })
@@ -43,7 +46,15 @@ export default function LoginForm() {
   } = useForm<Inputs>({ resolver: yupResolver(bireyselSchema) });
 
   const onSubmitHandler = (data: any) => {
-    console.log({ data });
+    data.preventDefault();
+
+    //TODO: make the sending function
+    emailJs.sendForm(
+      "YOUR_SERVICE_ID",
+      "YOUR_TEMPLATE_ID",
+      form.current,
+      "YOUR_PUBLIC_KEY"
+    );
     reset();
   };
   return (
@@ -77,6 +88,7 @@ export default function LoginForm() {
         </button>
       </div>
       <form
+        ref={form}
         className="grid grid-cols-2 gap-4"
         onSubmit={handleSubmit(onSubmitHandler)}
       >
@@ -128,7 +140,7 @@ export default function LoginForm() {
         />
         <input
           className={barStyle}
-          {...register("alış")}
+          {...register("take")}
           placeholder="Alış Tarihi"
           type="date"
           required
