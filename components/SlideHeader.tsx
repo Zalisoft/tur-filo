@@ -75,7 +75,7 @@ const SlideHeader = (props: Props) => {
             className={classOfIt}
             href="/urunler-guvenceler"
           >
-            Ürünler & Güvenceler"
+            Ürünler & Güvenceler
           </Link>
           <Link
             onClick={() => {

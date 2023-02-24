@@ -4,6 +4,7 @@ const nextConfig = {
   swcMinify: true,
   // TODO Configure external images' sources
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         hostname: "*",

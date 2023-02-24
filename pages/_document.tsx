@@ -7,7 +7,7 @@ export default function Document() {
       <Head>
         <link
           rel="apple-touch-icon"
-          sizes="180x180"
+          sizes="120x120"
           href="/favicons/apple-touch-icon.png"
         />
         <link
@@ -26,7 +26,7 @@ export default function Document() {
         <link
           rel="mask-icon"
           href="/favicons/safari-pinned-tab.svg"
-          color="#5bbad5"
+          color="#f46444"
         />
         <link rel="shortcut icon" href="/favicons/favicon.ico" />
         <meta name="msapplication-TileColor" content="#da532c" />
@@ -34,7 +34,7 @@ export default function Document() {
           name="msapplication-config"
           content="/favicons/browserconfig.xml"
         />
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#f46444" />
       </Head>
       <body>
         <Main />

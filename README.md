@@ -1,59 +1,7 @@
-# Next js React Web Project Template (Typescript, Sass, Tailwind Css, SVGR, Prettier, Storybook, SEO, On-Demand ISR pre-configs and other generally used features and tools in production.)
+# Tur-Filo website React Next Js web app
 
-This is a React [Next.js](https://nextjs.org/) project bootstrapped
-with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). To the default setup
-have been added:
+For more info about the project initial configuration, features and tools head to https://github.com/ouedyan/nextjs-template.
 
-- [Prettier](https://prettier.io/) - Popular opinionated code formatter.
-- [Sass](https://sass-lang.com/guide) - Popular Css extension.
-- [Tailwind Css](https://tailwindcss.com/) - Utility-first CSS framework.
-  Added to utilities such as :
-    - [tailwind-merge](https://www.npmjs.com/package/tailwind-merge) Utility function to efficiently merge Tailwind CSS classes in JS without style conflicts.
-    - [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss) A Prettier plugin that automatically sorts Tailwind classes based on recommended class order.
-- [Storybook](https://storybook.js.org/) - Frontend workshop for previewing and testing your UI components and pages in isolation.
-- [SVGR](https://react-svgr.com/) - Tool box for using SVGs in React directly as components like in Create React App.
-- Easy [SEO management](https://developers.google.com/search/) with [next-seo](https://www.npmjs.com/package/next-seo)
-    - Automatic [Sitemap](https://developers.google.com/search/docs/advanced/sitemaps/overview) generation with [next-sitemap](https://www.npmjs.com/package/next-sitemap).
-- [Next js On-Demand ISR](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration#on-demand-revalidation-beta)
-    - Next js On-demand Incremental Static Regeneration api config to revalidate static stale pages on demand.
-- [Conventional Commits Linting](https://www.conventionalcommits.org/en/v1.0.0/#summary) - Set of rules for enforcing
-  creation of more human and machine-readable explicit commits.
-- Absolute imports. See [Additional notes](#additional-notes-about-the-template) section.
-
-## Quick Start
-
-Start using this template with [Create Next App](https://nextjs.org/docs/api-reference/create-next-app).
-
-```bash
-yarn create next-app -e https://github.com/ouedyan/nextjs-template
-```
-
-Then check all TODO sections (by doing a global search for e.g.) to complete the project's setup.
-You can delete this README and use the simplified README.prod instead in your project.
-
-## Additional notes about the template
-
-Absolute imports have been configured in **tsconfig.json**
-
-```json lines
-{
-  "compilerOptions": {
-    //...
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "*"
-      ]
-    }
-  },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
-  //...
-}
-```
 
 ## Scripts
 
@@ -67,6 +15,12 @@ Building for production
 
 ```bash
 yarn build
+```
+
+Building for production and static deploying to GitHub Pages (gh-pages branch)
+
+```bash
+yarn deploy
 ```
 
 Run in production mode
@@ -125,6 +79,7 @@ Main folder structure
 📂 styles
   📄 globals.scss
 ```
+
 
 ## Project's main tech stack useful resources
 

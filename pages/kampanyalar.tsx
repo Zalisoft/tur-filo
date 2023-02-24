@@ -1,4 +1,5 @@
 import CardHeader from "@/components/CardHeader";
+// TODO(Ahmet timur) Fix missing references
 import Egea from "@/public/images/araçlar/Fiat Egea.png";
 import Clio from "@/public/images/araçlar/Renault Clio.png";
 import Tailant from "@/public/images/araçlar/Renault Tailant.png";
@@ -29,7 +30,8 @@ const Kampanyalar = () => {
               9.000 TL + KDV/ Aylık
             </h2>
           </div>
-          <Image src={Egea} alt="" />
+          {/* TODO(Ahmet timur) Fix missing reference */}
+          {/*<Image src={Egea} alt="" />*/}
         </div>
         <div className="flex flex-col items-center justify-center gap-10 bg-white p-5">
           <h1 className="text-center text-xl font-bold text-primary md:text-4xl">
@@ -51,7 +53,8 @@ const Kampanyalar = () => {
               9.000 TL + KDV/ Aylık
             </h2>
           </div>
-          <Image src={Clio} alt="" />
+          {/* TODO(Ahmet timur) Fix missing reference */}
+          {/*<Image src={Clio} alt="" />*/}
         </div>
         <div className="flex flex-col items-center justify-center gap-10 bg-white p-5">
           <h1 className="text-center text-xl font-bold text-primary md:text-4xl">
@@ -73,7 +76,8 @@ const Kampanyalar = () => {
               11.000 TL + KDV/ Aylık
             </h2>
           </div>
-          <Image src={Tailant} alt="" />
+          {/* TODO(Ahmet timur) Fix missing reference */}
+          {/*<Image src={Tailant} alt="" />*/}
         </div>
       </div>
     </section>

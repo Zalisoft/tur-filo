@@ -12,9 +12,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div className="w-sceen overflow-hidden">
       <DefaultSeo
-        defaultTitle="Next js React Web Project Template"
-        titleTemplate="%s | Next js React Web Project Template"
-        description="Next js React Web Project Template (Typescript, Sass, Tailwind Css, SVGR, Prettier , SEO and On-Demand ISR pre-configs and other generally used features and tools in production.)"
+        defaultTitle="Tur Filo"
+        titleTemplate="%s | Tur Filo"
+        description="Tur Filo Araç kiralama"
         canonical={`https://turfilokiralama.com${
           router.asPath === "/" ? "" : router.asPath
         }`}
@@ -24,10 +24,10 @@ function MyApp({ Component, pageProps }: AppProps) {
             router.asPath === "/" ? "" : router.asPath
           }`,
           locale: "en",
-          title: "Next js React Web Project Template",
+          title: "Tur Filo",
           description:
-            "Next js React Web Project Template (Typescript, Sass, Tailwind Css, SVGR, Prettier , SEO and On-Demand ISR pre-configs and other generally used features and tools in production.)",
-          site_name: "Next js React Web Project Template",
+            "Tur Filo Araç kiralama",
+          site_name: "Tur Filo",
         }}
         mobileAlternate={{
           media: "only screen and (max-width: 640px)",
@@ -35,11 +35,11 @@ function MyApp({ Component, pageProps }: AppProps) {
             router.asPath === "/" ? "" : router.asPath
           }`,
         }}
-        twitter={{
-          handle: "@example",
-          site: "@example",
-          cardType: "turfilokiralama",
-        }}
+        // twitter={{
+        //   handle: "@example",
+        //   site: "@example",
+        //   cardType: "turfilokiralama",
+        // }}
       />
       <Header />
       <Component {...pageProps} />
