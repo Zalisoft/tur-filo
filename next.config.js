@@ -1,7 +1,10 @@
-/** @type {import('next').NextConfig} */
+/** @type {import("next").NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  assetPrefix:
+    process.env.NODE_ENV === "development" ? "/tur-filo/" : undefined,
+  basePath: process.env.NODE_ENV === "development" ? "/tur-filo/" : undefined,
   // TODO Configure external images' sources
   images: {
     unoptimized: true,
