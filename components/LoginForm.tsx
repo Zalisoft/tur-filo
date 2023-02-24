@@ -25,13 +25,13 @@ export default function LoginForm() {
   const bireyselSchema = yup
     .object<Record<keyof Inputs, yup.AnySchema>>({
       kurum: yup.string(),
-      ad: yup.string(),
-      soyad: yup.string(),
-      tel: yup.number(),
-      email: yup.string(),
-      araçSay: yup.number(),
-      take: yup.date(),
-      iade: yup.date(),
+      ad: yup.string().required("Lütfen isminizi girin!"),
+      soyad: yup.string().required("Lütfen soyadınızı girin!"),
+      tel: yup.number().required("Lütfen Telefon numaranızı girin!"),
+      email: yup.string().required("Lütfen mail adresinizi girin!"),
+      araçSay: yup.number().required("Almak istediğiniz araç sayısı"),
+      take: yup.date().required(),
+      iade: yup.date().required(),
       msg: yup.string(),
     })
     .required();
@@ -115,6 +115,7 @@ export default function LoginForm() {
           required
         />
         <input
+          type="number"
           className={twMerge(barStyle, "col-span-2")}
           {...register("tel")}
           placeholder="Telefon Numaranız"

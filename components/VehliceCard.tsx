@@ -56,7 +56,7 @@ const VehliceCard = (props: Props) => {
           <Image className="w-[20px] md:w-[30px]" src={Vites} alt="" />
           Otomatik, Manuel
         </h1>
-        <button className="s-full h-full bg-primary text-center text-xs font-bold text-white md:text-lg">
+        <button className="s-full h-full bg-primary text-center text-[10px] font-bold text-white max-md:font-medium md:text-lg">
           Hemen Kirala
         </button>
       </div>
