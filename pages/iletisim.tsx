@@ -37,7 +37,7 @@ const İletişim = () => {
     <div className="my-14 flex flex-col items-center overflow-hidden">
       <h1 className="text-[3rem] font-bold text-primary">Bize Ulaşın</h1>
       <form
-        className="flex w-1/2 flex-col gap-4"
+        className="flex w-1/2 flex-col gap-4 max-md:w-4/5"
         onSubmit={handleSubmit(onSubmitHandler)}
       >
         <input

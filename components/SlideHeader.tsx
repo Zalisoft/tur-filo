@@ -1,6 +1,8 @@
 import Link from "next/link";
 import React from "react";
 import { GrClose } from "react-icons/gr";
+import Logo from "@/public/icons/Logo-white.png";
+import NextImage from "./NextImage";
 
 type Props = {
   bool: boolean;
@@ -30,6 +32,12 @@ const SlideHeader = (props: Props) => {
           e.stopPropagation();
         }}
       >
+        <NextImage
+          src={Logo}
+          alt="logo"
+          nextImageClassName="object-contain"
+          className="absolute h-[90px] w-full translate-y-2"
+        />
         <GrClose
           onClick={() => {
             setBool(false);

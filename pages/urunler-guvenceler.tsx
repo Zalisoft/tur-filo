@@ -13,8 +13,8 @@ const ÜrünlerGüvenceler = () => {
           <h1 className="w-full rounded-t-xl bg-primary py-4 text-center text-4xl font-bold text-white">
             Ek Ürünler
           </h1>
-          <div className="grid grid-cols-1 gap-1 px-5 md:gap-3">
-            <div className="my-2 mx-auto flex flex-col items-center justify-center rounded border-black px-2 md:border-[1px] md:py-4 md:px-12">
+          <div className="grid grid-cols-3 gap-1 px-5 max-md:grid-cols-1 md:gap-3">
+            <div className="my-2 mx-auto flex flex-col items-center justify-center rounded border-black px-2 max-md:rounded-none max-md:border-b-[1px] max-md:border-black max-md:pb-2 md:border-[1px] md:py-4 md:px-12">
               <Image
                 className="hidden md:inline"
                 src={KışLastiği}
@@ -29,7 +29,7 @@ const ÜrünlerGüvenceler = () => {
                 hizmettir.
               </p>
             </div>
-            <div className="my-2 mx-auto flex flex-col items-center justify-center rounded border-black px-2 md:border-[1px] md:py-4 md:px-12">
+            <div className="my-2 mx-auto flex flex-col items-center justify-center rounded border-black px-2 max-md:rounded-none max-md:border-b-[1px] max-md:border-black max-md:pb-2 md:border-[1px] md:py-4 md:px-12">
               <Image
                 className="hidden md:inline"
                 src={Driver}
@@ -44,7 +44,7 @@ const ÜrünlerGüvenceler = () => {
                 hizmettir.
               </p>
             </div>
-            <div className="my-2 mx-auto flex flex-col items-center justify-center rounded border-black px-2 md:border-[1px] md:py-4 md:px-12">
+            <div className="my-2 mx-auto flex flex-col items-center justify-center rounded border-black px-2 max-md:pb-2 md:border-[1px] md:py-4 md:px-12">
               <Image
                 className="hidden md:inline"
                 src={BebekKoltuğu}
