@@ -45,6 +45,7 @@ const Header = () => {
           className="fixed right-8 bottom-8 z-[100] rounded-full bg-green-600 p-3"
           href="https://wa.me/905323993916"
           target="_blank"
+          rel="noreferrer"
         >
           <BsWhatsapp className="text-white" size={40} />
         </a>

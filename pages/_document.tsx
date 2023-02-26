@@ -1,7 +1,6 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
-  // TODO: Defaults favicons, generate your own from https://realfavicongenerator.net/. See the /public/favicons folder.
   return (
     <Html lang="en">
       <Head>
