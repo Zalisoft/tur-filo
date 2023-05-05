@@ -21,17 +21,32 @@ const barStyle = "px-4 py-2 border-[1px] rounded";
 
 export default function LoginForm() {
   const form = useRef<any>();
+  const today = new Date().toISOString().substr(0, 10);
 
   const bireyselSchema = yup
     .object<Record<keyof Inputs, yup.AnySchema>>({
-      kurum: yup.string(),
+      kurum: yup.string().when("status", {
+        is: "kurumsal",
+        then: yup.string().required("Lütfen kurum adını girin!"),
+      }),
       ad: yup.string().required("Lütfen isminizi girin!"),
       soyad: yup.string().required("Lütfen soyadınızı girin!"),
       tel: yup.number().required("Lütfen Telefon numaranızı girin!"),
       email: yup.string().required("Lütfen mail adresinizi girin!"),
-      araçSay: yup.number().required("Almak istediğiniz araç sayısı"),
-      take: yup.date().required(),
-      iade: yup.date().required(),
+      araçSay: yup
+        .number()
+        .required("Almak istediğiniz araç sayısı")
+        .when("status", {
+          is: "bireysel",
+          then: yup.number().oneOf([1], "Sadece 1 araç kiralayabilirsiniz."),
+          otherwise: yup.number().required("Lütfen araç sayısını girin!"),
+        }),
+      take: yup.date().required().min(today, "Geçmiş tarihler seçilemez!"),
+      iade: yup
+        .date()
+        .required()
+        .min(yup.ref("take"), "İade tarihi alış tarihinden önce olamaz!")
+        .min(today, "Geçmiş tarihler seçilemez!"),
       msg: yup.string(),
     })
     .required();
@@ -46,6 +61,7 @@ export default function LoginForm() {
   } = useForm<Inputs>({ resolver: yupResolver(bireyselSchema) });
 
   const onSubmitHandler = (data: any) => {
+    console.log("data", data);
     data.preventDefault();
 
     //TODO: make the sending function
@@ -138,11 +154,14 @@ export default function LoginForm() {
           placeholder="Araç Sayısı"
           type="number"
           required={status === "kurumsal"}
+          defaultValue={status === "bireysel" ? 1 : undefined}
         />
         <input
-          className={barStyle}
+          className={twMerge(barStyle, "placeholder-black")}
           {...register("take")}
-          placeholder="Alış Tarihi"
+          placeholder="GG/AA/YYYY"
+          defaultValue={new Date().toISOString().substr(0, 10)}
+          min={today}
           type="date"
           required
         />
@@ -150,6 +169,8 @@ export default function LoginForm() {
           className={barStyle}
           {...register("iade")}
           placeholder="İade Tarihi"
+          min={today}
+          defaultValue={new Date().toISOString().substr(0, 10)}
           type="date"
           required
         />
