@@ -3,6 +3,7 @@ import React from "react";
 import { GrClose } from "react-icons/gr";
 import Logo from "@/public/icons/Logo-white.png";
 import NextImage from "./NextImage";
+import CloseSVG from "@/public/icons/close-white.svg";
 
 type Props = {
   bool: boolean;
@@ -32,17 +33,19 @@ const SlideHeader = (props: Props) => {
           e.stopPropagation();
         }}
       >
+        <div
+          className="p-2"
+          onClick={() => {
+            setBool(false);
+          }}
+        >
+          <CloseSVG className="ml-auto mr-2 mt-2 h-5 w-5" />
+        </div>
         <NextImage
           src={Logo}
           alt="logo"
           nextImageClassName="object-contain"
           className="absolute h-[90px] w-full translate-y-2"
-        />
-        <GrClose
-          onClick={() => {
-            setBool(false);
-          }}
-          className="ml-auto mr-2 mt-2 bg-white"
         />
         <ul className="mt-[100px] grid gap-2 px-10 text-center">
           <Link

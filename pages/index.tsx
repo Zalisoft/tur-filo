@@ -15,10 +15,10 @@ const Home: NextPage = () => {
     <div className="overflow-hidden">
       {/* --Form-- */}
       <section
-        className={`fixed-BG relative h-[76vh] w-full md:!bg-secondary md:p-8`}
+        className={`fixed-BG relative h-[76vh] w-full sm:mb-40 md:!bg-secondary md:p-8`}
       >
         <div className="relative mx-auto w-full">
-          <h1 className="absolute left-[50%] translate-y-2 translate-x-[-50%] bg-primary px-12 py-4 text-5xl font-bold text-white md:translate-y-[-1.5rem]">
+          <h1 className="absolute left-[50%] translate-x-[-50%] translate-y-2 bg-primary px-12 py-4 text-2xl font-bold text-white md:translate-y-[-1.5rem]">
             Rezervasyon
           </h1>
           <LoginForm /> {/* TODO Hidrasyon Hatası sebebi */}
@@ -44,7 +44,7 @@ const Home: NextPage = () => {
         </div>
         <div className="my-28 flex flex-col items-center px-4 md:px-20">
           <FaCaravan className="mx-auto" size={60} />
-          <h1 className="text-center text-xs md:text-base">Karaven Kiralama</h1>
+          <h1 className="text-center text-xs md:text-base">Karavan Kiralama</h1>
         </div>
       </div>
       {/* --QR Code-- */}

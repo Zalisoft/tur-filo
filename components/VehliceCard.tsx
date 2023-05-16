@@ -4,6 +4,7 @@ import Airbag from "@/public/icons/Airbag.jpeg";
 import Fuel from "@/public/icons/Fuel.jpeg";
 import Passangers from "@/public/icons/Passangers.jpeg";
 import Vites from "@/public/icons/Vites.jpeg";
+import { useRouter } from "next/router";
 
 type Props = {
   category: string;
@@ -15,6 +16,7 @@ type Props = {
 };
 
 const VehliceCard = (props: Props) => {
+  const router = useRouter();
   const { category, marka, model, fiyat, yolcu, additive } = props;
   let categoryTextClass = "flex items-center text-[.6rem] md:text-base gap-2";
   return (
@@ -56,7 +58,10 @@ const VehliceCard = (props: Props) => {
           <Image className="w-[20px] md:w-[30px]" src={Vites} alt="" />
           Otomatik, Manuel
         </h1>
-        <button className="s-full h-full bg-primary text-center text-[10px] font-bold text-white max-md:font-medium md:text-lg">
+        <button
+          onClick={() => router.push("/")}
+          className="s-full h-full bg-primary text-center text-[10px] font-bold text-white max-md:font-medium md:text-lg"
+        >
           Hemen Kirala
         </button>
       </div>

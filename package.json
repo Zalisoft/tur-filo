@@ -16,6 +16,7 @@
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
     "@hookform/resolvers": "^2.9.10",
+    "axios": "^1.4.0",
     "clsx": "^1.2.1",
     "next": "13.0.6",
     "next-seo": "^5.15.0",

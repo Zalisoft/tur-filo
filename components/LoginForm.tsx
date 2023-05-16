@@ -3,76 +3,116 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { twMerge } from "tailwind-merge";
 import { useRef, useState } from "react";
-import emailJs from "@emailjs/browser";
+import ArrowSVG from "@/public/icons/arrow.svg";
+import { sendMailIndividual, sendMailInstitutional } from "@/lib/data/contact";
 
-type Inputs = {
-  kurum: string;
-  ad: string;
-  soyad: string;
-  tel: string;
+type InstitutionalInputs = {
+  name: string;
+  surname: string;
   email: string;
-  araçSay: number;
-  take: Date;
-  iade: Date;
-  msg?: string;
+  phone: string;
+  aracSayisi: number;
+  alisTarihi: string;
+  kiralamaSuresi: string;
+  message?: string;
+  companyName: string;
 };
 
-const barStyle = "px-4 py-2 border-[1px] rounded";
+type IndividualInputs = {
+  name: string;
+  surname: string;
+  email: string;
+  phone: string;
+  message?: string;
+  alisTarihi: string;
+  iadeTarihi: string;
+};
+
+const barStyle = "px-4 py-2 border-[1px] rounded h-12";
 
 export default function LoginForm() {
+  const today = new Date().toLocaleDateString("tr-TR");
+  const todayDefault = new Date().toISOString().substr(0, 10);
+  const [isActive, setIsActive] = useState(false);
+  const [selected, setSelected] = useState("Kiralama Süresi");
+
+  const options = ["6 Ay", "12 Ay", "18 Ay", "24 Ay", "36 Ay", "Diğer"];
   const form = useRef<any>();
-  const today = new Date().toISOString().substr(0, 10);
+  const date = new Date();
+  console.log(date);
 
   const bireyselSchema = yup
-    .object<Record<keyof Inputs, yup.AnySchema>>({
-      kurum: yup.string().when("status", {
-        is: "kurumsal",
-        then: yup.string().required("Lütfen kurum adını girin!"),
-      }),
-      ad: yup.string().required("Lütfen isminizi girin!"),
-      soyad: yup.string().required("Lütfen soyadınızı girin!"),
-      tel: yup.number().required("Lütfen Telefon numaranızı girin!"),
+    .object<Record<keyof IndividualInputs, yup.AnySchema>>({
+      name: yup.string().required("isim alanı zorunludur"),
+      surname: yup.string().required("soyad alanı zorunludur"),
+      phone: yup.string().required("telefon alanı zorunludur"),
+      email: yup.string().required("email alanı zorunludur"),
+      message: yup.string().required("telefon numarası zorunludur"),
+      alisTarihi: yup.string().required("iade tarihi zorunludur"),
+      iadeTarihi: yup.string().required("iade tarihi zorunludur"),
+    })
+    .required();
+
+  const kurumsalSchema = yup
+    .object<Record<keyof InstitutionalInputs, yup.AnySchema>>({
+      companyName: yup.string(),
+      name: yup.string().required("Lütfen isminizi girin!"),
+      surname: yup.string().required("Lütfen soyadınızı girin!"),
+      phone: yup.number().required("Lütfen Telefon numaranızı girin!"),
       email: yup.string().required("Lütfen mail adresinizi girin!"),
-      araçSay: yup
-        .number()
-        .required("Almak istediğiniz araç sayısı")
-        .when("status", {
-          is: "bireysel",
-          then: yup.number().oneOf([1], "Sadece 1 araç kiralayabilirsiniz."),
-          otherwise: yup.number().required("Lütfen araç sayısını girin!"),
-        }),
-      take: yup.date().required().min(today, "Geçmiş tarihler seçilemez!"),
-      iade: yup
-        .date()
-        .required()
-        .min(yup.ref("take"), "İade tarihi alış tarihinden önce olamaz!")
-        .min(today, "Geçmiş tarihler seçilemez!"),
-      msg: yup.string(),
+      aracSayisi: yup.number().required("Lütfen araç sayısı giriniz"),
+      alisTarihi: yup.string().required().required("Lütfen tarih belirtiniz"),
+      kiralamaSuresi: yup.string().required("Lütfen iade tarihi giriniz"),
+      message: yup.string(),
     })
     .required();
 
   const [status, setStatus] = useState<"bireysel" | "kurumsal">("bireysel");
 
   const {
+    register: registerKurumsal,
+    handleSubmit: handleSubmitKurumsal,
+    reset: resetKurumsal,
+    setValue: setValueKurumsal,
+    formState: { errors: errorsKurumsal },
+  } = useForm<InstitutionalInputs>({ resolver: yupResolver(kurumsalSchema) });
+
+  const onSubmit: SubmitHandler<InstitutionalInputs> = (data) => {
+    const formattedData = {
+      ...data,
+      alisTarihi: formatDate(data.alisTarihi),
+    };
+    sendMailInstitutional(formattedData);
+    reset();
+  };
+
+  const {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
-  } = useForm<Inputs>({ resolver: yupResolver(bireyselSchema) });
+    setValue,
+    formState: { errors: errors },
+  } = useForm<IndividualInputs>({ resolver: yupResolver(bireyselSchema) });
 
-  const onSubmitHandler = (data: any) => {
-    console.log("data", data);
-    data.preventDefault();
+  const onSubmitBireysel: SubmitHandler<IndividualInputs> = (data) => {
+    const formattedData = {
+      ...data,
+      alisTarihi: formatDate(data.alisTarihi),
+      iadeTarihi: formatDate(data.iadeTarihi),
+    };
 
-    //TODO: make the sending function
-    emailJs.sendForm(
-      "YOUR_SERVICE_ID",
-      "YOUR_TEMPLATE_ID",
-      form.current,
-      "YOUR_PUBLIC_KEY"
-    );
+    sendMailIndividual(formattedData);
     reset();
   };
+
+  const formatDate = (dateString: string): string => {
+    const dateParts = dateString.split("-");
+    const day = dateParts[2];
+    const month = dateParts[1];
+    const year = dateParts[0];
+    return `${day}-${month}-${year}`;
+  };
+
   return (
     <div className="mx-auto w-full bg-secondary px-12 py-24 md:w-[50rem] md:rounded-xl md:py-24">
       <div className="flex w-full items-center justify-around">
@@ -103,89 +143,174 @@ export default function LoginForm() {
           Kurumsal
         </button>
       </div>
-      <form
-        ref={form}
-        className="grid grid-cols-2 gap-4"
-        onSubmit={handleSubmit(onSubmitHandler)}
-      >
-        <input
-          className={twMerge(
-            barStyle,
-            `${status === "kurumsal" ? "scale-y-100" : "hidden scale-y-0"}`,
-            "col-span-2"
-          )}
-          {...register("kurum")}
-          placeholder="Kurum Adı"
-          required={status === "kurumsal"}
-        />
-        <input
-          className={barStyle}
-          {...register("ad")}
-          placeholder="Adınız"
-          required
-        />
-        <input
-          className={barStyle}
-          {...register("soyad")}
-          placeholder="Soyadınız"
-          required
-        />
-        <input
-          type="number"
-          className={twMerge(barStyle, "col-span-2")}
-          {...register("tel")}
-          placeholder="Telefon Numaranız"
-          required
-        />
-        <input
-          className={twMerge(barStyle, "col-span-2")}
-          {...register("email")}
-          placeholder="Email"
-          type="email"
-          required
-        />
-        <input
-          className={twMerge(
-            barStyle,
-            "col-span-2 transition-all",
-            `${status === "kurumsal" ? "scale-y-100" : "hidden scale-y-0"}`
-          )}
-          {...register("araçSay")}
-          placeholder="Araç Sayısı"
-          type="number"
-          required={status === "kurumsal"}
-          defaultValue={status === "bireysel" ? 1 : undefined}
-        />
-        <input
-          className={twMerge(barStyle, "placeholder-black")}
-          {...register("take")}
-          placeholder="GG/AA/YYYY"
-          defaultValue={new Date().toISOString().substr(0, 10)}
-          min={today}
-          type="date"
-          required
-        />
-        <input
-          className={barStyle}
-          {...register("iade")}
-          placeholder="İade Tarihi"
-          min={today}
-          defaultValue={new Date().toISOString().substr(0, 10)}
-          type="date"
-          required
-        />
-        <textarea
-          className={twMerge(barStyle, "col-span-2 pb-[50px]")}
-          {...register("msg")}
-          placeholder="Mesajınız ve Talepleriniz (Opsiyonel)"
-        />
-        <button
-          type="submit"
-          className=" col-span-2 bg-primary py-2 text-2xl text-white "
+
+      {status === "bireysel" ? (
+        <form
+          ref={form}
+          className="grid grid-cols-2 gap-4"
+          onSubmit={handleSubmit(onSubmitBireysel)}
         >
-          Rezervasyon Yap
-        </button>
-      </form>
+          <input
+            className={barStyle}
+            {...register("name")}
+            placeholder="Adınız"
+            required
+          />
+          <input
+            className={barStyle}
+            {...register("surname")}
+            placeholder="Soyadınız"
+            required
+          />
+          <input
+            type="number"
+            className={twMerge(barStyle, "col-span-2")}
+            {...register("phone")}
+            placeholder="Telefon Numaranız"
+            required
+          />
+          <input
+            className={twMerge(barStyle, "col-span-2")}
+            {...register("email")}
+            placeholder="Email"
+            type="email"
+            required
+          />
+          <input
+            className={barStyle}
+            placeholder="gg.aa.yyyy"
+            {...register("alisTarihi")}
+            defaultValue={new Date().toLocaleDateString("tr-TR")}
+            min={todayDefault}
+            type="date"
+            required
+          />
+          <input
+            className={barStyle}
+            placeholder="gg.aa.yyyy"
+            {...register("iadeTarihi")}
+            min={todayDefault}
+            defaultValue={new Date().toLocaleDateString("tr-TR")}
+            type="date"
+            required
+          />
+          <textarea
+            className={twMerge(barStyle, "col-span-2 pb-[50px]")}
+            {...register("message")}
+            placeholder="Mesajınız ve Talepleriniz"
+          />
+          <button
+            type="submit"
+            className="col-span-2 bg-primary py-2 text-2xl text-white "
+          >
+            Rezervasyon Yap
+          </button>
+        </form>
+      ) : (
+        <form
+          ref={form}
+          className="grid grid-cols-2 gap-4"
+          onSubmit={handleSubmitKurumsal(onSubmit)}
+        >
+          <input
+            className={twMerge(barStyle, "col-span-2")}
+            placeholder="Kurum Adı"
+            {...registerKurumsal("companyName")}
+            required
+          />
+          <input
+            className={barStyle}
+            placeholder="Adınız"
+            {...registerKurumsal("name")}
+            required
+          />
+          <input
+            className={barStyle}
+            {...registerKurumsal("surname")}
+            placeholder="Soyadınız"
+            required
+          />
+          <input
+            type="number"
+            className={twMerge(barStyle, "col-span-2")}
+            {...registerKurumsal("phone")}
+            placeholder="Telefon Numaranız"
+            required
+          />
+          <input
+            className={twMerge(
+              barStyle,
+              "col-span-2 text-gray-400 focus:text-black"
+            )}
+            {...registerKurumsal("email")}
+            type="email"
+            required
+            defaultValue={"example@example.com"}
+          />
+
+          <input
+            type="number"
+            className={twMerge(barStyle, "col-span-2")}
+            {...registerKurumsal("aracSayisi")}
+            placeholder="Araç Sayısı"
+            required
+          />
+          <input
+            className={barStyle}
+            placeholder="gg.aa.yyyy"
+            {...registerKurumsal("alisTarihi")}
+            min={today}
+            defaultValue={new Date().toISOString().substr(0, 10)}
+            type="date"
+            required
+          />
+          <div className="relative">
+            <div
+              className="flex h-12 w-full cursor-pointer select-none flex-col items-center justify-center bg-white"
+              onClick={(e) => setIsActive(!isActive)}
+            >
+              <div className="flex h-6 w-full flex-row items-center justify-around font-medium max-sm:text-sm">
+                <span>{selected}</span>
+                <div
+                  className={`${
+                    isActive ? "rotate-180 transition-all duration-300" : ""
+                  }`}
+                >
+                  <ArrowSVG />
+                </div>
+              </div>
+            </div>
+            {isActive && (
+              <div className="absolute z-10 mt-2 flex w-full flex-col gap-y-2 overflow-auto bg-white px-5 py-3">
+                {options.map((option: any, e) => (
+                  <div
+                    key={e}
+                    onClick={(e) => {
+                      setSelected(option);
+                      setIsActive(false);
+                      setValueKurumsal("kiralamaSuresi", option);
+                    }}
+                    className="cursor-pointer hover:bg-gray-300"
+                  >
+                    {option}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+          <textarea
+            className={twMerge(barStyle, "col-span-2 pb-[50px]")}
+            {...registerKurumsal("message")}
+            placeholder="Mesajınız ve Talepleriniz"
+          />
+          <button
+            type="submit"
+            className=" col-span-2 bg-primary py-2 text-2xl text-white "
+          >
+            Rezervasyon Yap
+          </button>
+        </form>
+      )}
     </div>
   );
 }
