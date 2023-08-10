@@ -2,6 +2,13 @@
   {
     "category": "Ekonomik",
     "marka": "Citroen",
+    "model": "AMI",
+    "fiyat": 700,
+    "yolcu": 1
+  },
+  {
+    "category": "Ekonomik",
+    "marka": "Citroen",
     "model": "C Ellsye",
     "fiyat": 720,
     "yolcu": 5
@@ -92,9 +99,23 @@
   },
   {
     "category": "Konfor",
+    "marka": "Ford",
+    "model": "ActiveX",
+    "fiyat": 1500,
+    "yolcu": 5
+  },
+  {
+    "category": "Konfor",
     "marka": "Honda",
     "model": "Civic",
     "fiyat": 1440,
+    "yolcu": 5
+  },
+  {
+    "category": "Konfor",
+    "marka": "Hyundai",
+    "model": "Elantra",
+    "fiyat": 1500,
     "yolcu": 5
   },
   {
@@ -134,9 +155,23 @@
   },
   {
     "category": "Prestij",
+    "marka": "Volvo",
+    "model": "s60",
+    "fiyat": 2500,
+    "yolcu": 5
+  },
+  {
+    "category": "Prestij",
     "marka": "BMW",
     "model": "1.16",
     "fiyat": 2250,
+    "yolcu": 5
+  },
+  {
+    "category": "Prestij",
+    "marka": "BMW",
+    "model": "1.18",
+    "fiyat": 2450,
     "yolcu": 5
   },
   {
@@ -155,6 +190,13 @@
   },
   {
     "category": "Lüks",
+    "marka": "Skoda",
+    "model": "superB",
+    "fiyat": 3100,
+    "yolcu": 5
+  },
+  {
+    "category": "Lüks",
     "marka": "Volvo",
     "model": "s90",
     "fiyat": 3150,
@@ -165,6 +207,13 @@
     "marka": "BMW",
     "model": "5.20",
     "fiyat": 3150,
+    "yolcu": 5
+  },
+  {
+    "category": "Lüks",
+    "marka": "BMW",
+    "model": "Xdrive",
+    "fiyat": 3500,
     "yolcu": 5
   },
   {

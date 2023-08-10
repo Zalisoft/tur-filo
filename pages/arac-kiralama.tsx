@@ -7,7 +7,7 @@ const AracKiralama = () => {
   const [categoryFilter, setCategoryFilter] = useState<string>("Tüm");
   const [nameFilter, setNameFilter] = useState<string>("");
   const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(2250);
+  const [maxPrice, setMaxPrice] = useState(5000);
   const [markaFilter, setMarkaFilter] = useState<string>("Tüm");
 
   return (
@@ -51,7 +51,7 @@ const AracKiralama = () => {
         />
       </nav>
       <header
-        className={`container mx-auto rounded border-2 border-gray-200 bg-white py-4 px-8 transition-all`}
+        className={`container mx-auto rounded border-2 border-gray-200 bg-white px-8 py-4 transition-all`}
         style={{ transform: `translate(0 , 0)` }}
       >
         <form>
@@ -64,7 +64,7 @@ const AracKiralama = () => {
                   setMarkaFilter(e.target.value);
                 }}
               >
-                <option value="Tüm">-</option>
+                <option value="Tüm">Tümü</option>
                 <option value="Audi">Audi</option>
                 <option value="BMW">BMW</option>
                 <option value="Citroen">Citroen</option>
@@ -79,6 +79,7 @@ const AracKiralama = () => {
                 <option value="Peugeot">Peugeot</option>
                 <option value="Volkswagen">Volkswagen</option>
                 <option value="Volvo">Volvo</option>
+                <option value="Volvo">Skoda</option>
               </select>
             </label>
             <label className="mx-auto flex flex-col text-xs md:text-base">
@@ -88,7 +89,6 @@ const AracKiralama = () => {
               </span>
               <div>
                 <input
-                  type="number"
                   value={minPrice}
                   onChange={(e) => {
                     setMinPrice(Number(e.target.value));
@@ -97,7 +97,6 @@ const AracKiralama = () => {
                 />
                 -
                 <input
-                  type="number"
                   value={maxPrice}
                   onChange={(e) => {
                     setMaxPrice(Number(e.target.value));
