@@ -79,7 +79,7 @@ const AracKiralama = () => {
                 <option value="Peugeot">Peugeot</option>
                 <option value="Volkswagen">Volkswagen</option>
                 <option value="Volvo">Volvo</option>
-                <option value="Volvo">Skoda</option>
+                <option value="Skoda">Skoda</option>
               </select>
             </label>
             <label className="mx-auto flex flex-col text-xs md:text-base">
